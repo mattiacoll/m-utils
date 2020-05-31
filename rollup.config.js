@@ -10,27 +10,19 @@ export default [
 		input: 'src/index.js',
 		output: [
 			{
-				file:		'dist/umd/m-utils.js',
-				format: 'umd',
-				indent: false,
-				strict: false,
-				name:		'm-utils',
-			},
-			{
-				file:		'dist/umd/m-utils.min.js',
-				format: 'umd',
-				indent: false,
-				strict: false,
-				name:		'm-utils',
-				plugins: [
-					terser(),
-				],
-			},
-			{
-				file:		'dist/es/m-utils.js',
+				file:		'dist/matt-utils.js',
 				format: 'es',
 				indent: false,
 				strict: false,
+			},
+			{
+				file:		'dist/matt-utils.min.js',
+				format: 'es',
+				indent: false,
+				strict: false,
+				plugins: [
+					terser(),
+				]
 			},
 		],
 		context: 'window',

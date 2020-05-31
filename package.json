@@ -2,7 +2,7 @@
   "name": "matt-utils",
   "version": "1.0.1",
   "description": "Some simple shothands for some js functions and methods",
-  "main": "index.js",
+  "main": "dist/matt-utils.js",
   "scripts": {
     "rl": "rollup -cw"
   },
