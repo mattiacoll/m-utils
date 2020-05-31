@@ -11,15 +11,17 @@ export default [
 		output: [
 			{
 				file:		'dist/matt-utils.js',
-				format: 'es',
+				format: 'umd',
 				indent: false,
 				strict: false,
+				name:		'matt-utils',
 			},
 			{
 				file:		'dist/matt-utils.min.js',
-				format: 'es',
+				format: 'umd',
 				indent: false,
 				strict: false,
+				name:		'matt-utils',
 				plugins: [
 					terser(),
 				]
