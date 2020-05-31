@@ -1,6 +1,6 @@
 {
   "name": "matt-utils",
-  "version": "1.0.0",
+  "version": "1.0.1",
   "description": "Some simple shothands for some js functions and methods",
   "main": "index.js",
   "scripts": {
