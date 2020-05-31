@@ -1,12 +1,18 @@
-# m-utils
+# matt-utils
 Some simple shorthands for some js functions and methods
 
 ## Install
 
-// todo install (possibly npm)
+Use npm:
 
 ```
-npm i -D m-utils
+npm i -D matt-utils
+```
+
+Or pnpm
+
+```
+pnpm i -D matt-utils
 ```
 
 ## Usage
@@ -14,7 +20,7 @@ npm i -D m-utils
 Just import the needed functions into your file
 
 ```
-import { addEvent, byId } from 'm-utils'
+import { addEvent, byId } from 'matt-utils'
 
 addEvent( byId( 'some-selector' ), 'click', ( ev ) => {
   console.log( 'click' );
