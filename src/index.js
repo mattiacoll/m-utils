@@ -2,12 +2,11 @@
  * Shorthand for `document.getElementById`
  *
  * @param {String} id - The selector's id
- * @param {Element} [parent=document] - Parent element
  *
  * @returns {Element|null} - The selected element
  */
-export function byId( id, parent = document ) {
-	return parent.getElementById( id );
+export function byId( id ) {
+	return document.getElementById( id );
 }
 
 /**
