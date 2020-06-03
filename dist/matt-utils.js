@@ -55,18 +55,10 @@ function hasClass(el, classes) {
   return el.classList.contains(classes);
 }
 function addEvent(el, ev, fn, opts) {
-  if (el.length === undefined) el.addEventListener(ev, fn, opts);else {
-    forEachHTML(el, currEl => {
-      el.addEventListener(currEl, fn, opts);
-    });
-  }
+  el.addEventListener(ev, fn, opts);
 }
 function removeEvent(el, ev, fn, opts) {
-  if (el.length === undefined) el.removeEventListener(ev, fn, opts);else {
-    forEachHTML(el, currEl => {
-      el.removeEventListener(currEl, fn, opts);
-    });
-  }
+  el.removeEventListener(ev, fn, opts);
 }
 function getTopPos(el, topEl = document.body) {
   return el.getBoundingClientRect().top - topEl.getBoundingClientRect().top;

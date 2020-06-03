@@ -168,13 +168,15 @@ export function hasClass( el, classes ) {
  */
 export function addEvent( el, ev, fn, opts ) {
 
-	if ( el.length === undefined )
+	// if ( el.length === undefined || el.self === window )
 		el.addEventListener( ev, fn, opts );
+	/*
 	else {
 		forEachHTML( el, ( currEl ) => {
-			el.addEventListener( currEl, fn, opts );
+			currEl.addEventListener( ev, fn, opts );
 		});
 	}
+	*/
 
 }
 
@@ -188,13 +190,15 @@ export function addEvent( el, ev, fn, opts ) {
  */
 export function removeEvent( el, ev, fn, opts ) {
 
-	if ( el.length === undefined )
+	// if ( el.length === undefined || el.self === window )
 		el.removeEventListener( ev, fn, opts );
+	/*
 	else {
 		forEachHTML( el, ( currEl ) => {
-			el.removeEventListener( currEl, fn, opts );
+			currEl.removeEventListener( ev, fn, opts );
 		});
 	}
+	*/
 
 }
 
