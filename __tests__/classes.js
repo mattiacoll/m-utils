@@ -60,6 +60,15 @@ describe( 'Classes', () => {
 			expect( el.getAttribute( 'class' ) ).toEqual( expect.stringContaining( 'test-byId' ) );
 		});
 
+		test( 'Has class multiple', () => {
+
+			let el = byId( 'get-el-1' );
+
+			expect( el ).not.toBe( null );
+			expect( hasClass( el, 'test-byId', 'test-byId-2' ) ).toEqual( true );
+
+		});
+
 		// remove 2 classes
 		test( 'Remove multiple classes', () => {
 
@@ -88,6 +97,15 @@ describe( 'Classes', () => {
 			expect( el.getAttribute( 'class' ) ).toEqual( expect.stringContaining( 'test-query' ) );
 		});
 
+		test( 'Has class', () => {
+
+			let el = query( '#get-el-1' );
+
+			expect( el ).not.toBe( null );
+			expect( hasClass( el, 'test-query' ) ).toEqual( true );
+
+		});
+
 		// remove 1 class
 		test( 'Remove single class', () => {
 
@@ -109,6 +127,15 @@ describe( 'Classes', () => {
 
 			expect( el.getAttribute( 'class' ) ).toEqual( expect.stringContaining( 'test-query-2' ) );
 			expect( el.getAttribute( 'class' ) ).toEqual( expect.stringContaining( 'test-query' ) );
+		});
+
+		test( 'Has class multiple', () => {
+
+			let el = query( '#get-el-1' );
+
+			expect( el ).not.toBe( null );
+			expect( hasClass( el, 'test-query', 'test-query-2' ) ).toEqual( true );
+
 		});
 
 		// remove 2 classes
@@ -137,6 +164,15 @@ describe( 'Classes', () => {
 			addClass( el[0], 'test-byClass' );
 
 			expect( el[0].getAttribute( 'class' ) ).toEqual( expect.stringContaining( 'test-byClass' ) );
+		});
+
+		test( 'Has class', () => {
+
+			let el = byClass( 'outer' );
+
+			expect( el.length ).not.toBe( 0 );
+			expect( hasClass( el[0], 'test-byClass' ) ).toEqual( true );
+
 		});
 
 		// remove 1 class
@@ -186,6 +222,15 @@ describe( 'Classes', () => {
 
 			expect( el[0].getAttribute( 'class' ) ).toEqual( expect.stringContaining( 'test-byClass-2' ) );
 			expect( el[0].getAttribute( 'class' ) ).toEqual( expect.stringContaining( 'test-byClass' ) );
+		});
+
+		test( 'Has class multiple', () => {
+
+			let el = byClass( 'outer' );
+
+			expect( el.length ).not.toBe( 0 );
+			expect( hasClass( el[0], 'test-byClass', 'test-byClass-2' ) ).toEqual( true );
+
 		});
 
 		// remove 2 classes
@@ -248,6 +293,15 @@ describe( 'Classes', () => {
 			expect( el[0].getAttribute( 'class' ) ).toEqual( expect.stringContaining( 'test-queryAll' ) );
 		});
 
+		test( 'Has class', () => {
+
+			let el = queryAll( '.outer' );
+
+			expect( el.length ).not.toBe( 0 );
+			expect( hasClass( el[0], 'test-queryAll' ) ).toEqual( true );
+
+		});
+
 		// remove 1 class
 		test( 'Remove single class from single el', () => {
 
@@ -295,6 +349,15 @@ describe( 'Classes', () => {
 
 			expect( el[0].getAttribute( 'class' ) ).toEqual( expect.stringContaining( 'test-queryAll-2' ) );
 			expect( el[0].getAttribute( 'class' ) ).toEqual( expect.stringContaining( 'test-queryAll' ) );
+		});
+
+		test( 'Has class multiple', () => {
+
+			let el = queryAll( '.outer' );
+
+			expect( el.length ).not.toBe( 0 );
+			expect( hasClass( el[0], 'test-queryAll', 'test-queryAll-2' ) ).toEqual( true );
+
 		});
 
 		// remove 2 classes
