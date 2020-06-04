@@ -6,7 +6,7 @@
   "scripts": {
     "rl": "rollup -cw",
     "declaration:build": "tsc -p tsconfig.json",
-    "test": "jest"
+    "test": "jest --verbose"
   },
   "repository": {
     "type": "git",
