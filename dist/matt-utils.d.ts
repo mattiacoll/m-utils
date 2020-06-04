@@ -76,11 +76,11 @@ declare module "index" {
      * // TODO: check for multiple classes and multiple elements
      *
      * @param {Element} el - An HTML element
-     * @param {String} classes - Classes to check the presence of
+     * @param {...String} classes - Classes to check the presence of
      *
      * @returns {Boolean} - The element has the class
      */
-    export function hasClass(el: Element, classes: string): boolean;
+    export function hasClass(el: Element, ...classes: string[]): boolean;
     /**
      * Shorthand for `element.addEventListener`, works with multiple elements
      *
