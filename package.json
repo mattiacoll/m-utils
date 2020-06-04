@@ -5,7 +5,8 @@
   "main": "dist/matt-utils.js",
   "scripts": {
     "rl": "rollup -cw",
-    "declaration:build": "tsc -p tsconfig.json",
+    "declarations": "tsc -p tsconfig.json",
+    "build:prod": "rollup -c & npm run declarations",
     "test": "jest --verbose"
   },
   "repository": {
