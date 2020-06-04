@@ -1,5 +1,11 @@
 {
   "extends": [
     "config:base"
+  ],
+  "rangeStrategy": "replace",
+  "separateMajorMinor": true,
+  "separateMultipleMajor": true,
+  "schedule": [
+    "every weekday"
   ]
 }
