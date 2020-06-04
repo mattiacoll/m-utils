@@ -1,0 +1,27 @@
+{
+  "files": [
+    "src/index.js"
+  ],
+  "compilerOptions": {
+    /* Basic Options */
+    "target": "ES2016",
+    "module": "UMD",
+    "allowJs": true,
+    // "resolveJsonModule": true,
+    "noEmit": false,
+    "maxNodeModuleJsDepth": 3,
+    "moduleResolution": "Node",
+
+    /* Strict Type-Checking Options */
+    "strict": true,
+    "noImplicitAny": true,
+    "strictNullChecks": true,
+
+    /* Additional Checks */
+    "noUnusedLocals": true,
+    "outFile": "./dist/matt-utils.d.ts",
+
+    "declaration": true,
+    "emitDeclarationOnly": true
+  }
+}

@@ -5,6 +5,7 @@
   "main": "dist/matt-utils.js",
   "scripts": {
     "rl": "rollup -cw",
+    "declaration:build": "tsc -p tsconfig.json",
     "test": "jest"
   },
   "repository": {
@@ -37,6 +38,7 @@
     "jest": "^26.0.1",
     "rollup": "^2.12.1",
     "rollup-plugin-eslint": "^7.0.0",
-    "rollup-plugin-terser": "^6.1.0"
+    "rollup-plugin-terser": "^6.1.0",
+    "typescript": "^3.9.3"
   }
 }
