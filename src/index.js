@@ -237,6 +237,7 @@ export function getLeftPos( el, topEl = document.body ) {
 
 /**
  * Similar to jQuery `$( el ).index()`
+ * index start at 0
  *
  * @param {Element} el - An HTML element
  *
