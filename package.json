@@ -7,6 +7,7 @@
     "rl": "rollup -cw",
     "declarations": "tsc -p tsconfig.json",
     "build:prod": "rollup -c & npm run declarations",
+    "docs": "jsdoc2md src/index.js > api.md",
     "test": "jest --verbose"
   },
   "repository": {
@@ -37,6 +38,7 @@
     "core-js": "^3.6.5",
     "eslint": "^7.2.0",
     "jest": "^26.0.1",
+    "jsdoc-to-markdown": "^6.0.1",
     "rollup": "^2.13.1",
     "rollup-plugin-eslint": "^7.0.0",
     "rollup-plugin-terser": "^6.1.0",

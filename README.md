@@ -29,4 +29,4 @@ addEvent( byId( 'some-selector' ), 'click', ( ev ) => {
 
 ## Functions
 
-// Todo write docs
+Check the [API documentation](api.md).

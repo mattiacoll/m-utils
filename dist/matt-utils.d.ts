@@ -73,7 +73,7 @@ declare module "index" {
     export function removeClass(el: Element | HTMLCollection | NodeList, ...classes: string[]): void;
     /**
      * Checks if an element has a class or not
-     * // TODO: check for multiple classes and multiple elements
+     * // TODO: check for multiple classes of multiple elements
      *
      * @param {Element} el - An HTML element
      * @param {...String} classes - Classes to check the presence of
@@ -119,6 +119,7 @@ declare module "index" {
     export function getLeftPos(el: Element, topEl?: Element | undefined): number;
     /**
      * Similar to jQuery `$( el ).index()`
+     * index start at 0
      *
      * @param {Element} el - An HTML element
      *
