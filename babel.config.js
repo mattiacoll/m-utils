@@ -7,9 +7,6 @@ module.exports = function (api) {
 			[
 				'@babel/env',
 				{
-					targets: {
-						node: 'current',
-					},
 					useBuiltIns: 'usage',
 					corejs:			 3,
 					modules:		 false,
