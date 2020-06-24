@@ -166,7 +166,7 @@ export function hasClass( el, ...classes ) {
 
 
 /**
- * Shorthand for `element.addEventListener`, works with multiple elements
+ * Shorthand for `element.addEventListener`
  *
  * @param {Element|HTMLCollection|NodeList} el - A list of elements
  * @param {String} ev - Event's name
@@ -176,7 +176,7 @@ export function hasClass( el, ...classes ) {
 export function addEvent( el, ev, fn, opts ) {
 
 	// if ( el.length === undefined || el.self === window )
-		el.addEventListener( ev, fn, opts );
+	el.addEventListener( ev, fn, opts );
 	/*
 	else {
 		forEachHTML( el, ( currEl ) => {
@@ -188,7 +188,7 @@ export function addEvent( el, ev, fn, opts ) {
 }
 
 /**
- * Shorthand for `element.removeEventListener`, works with multiple elements
+ * Shorthand for `element.removeEventListener`
  *
  * @param {Element|HTMLCollection|NodeList} el - A list of elements
  * @param {String} ev - Event's name
@@ -198,7 +198,7 @@ export function addEvent( el, ev, fn, opts ) {
 export function removeEvent( el, ev, fn, opts ) {
 
 	// if ( el.length === undefined || el.self === window )
-		el.removeEventListener( ev, fn, opts );
+	el.removeEventListener( ev, fn, opts );
 	/*
 	else {
 		forEachHTML( el, ( currEl ) => {
