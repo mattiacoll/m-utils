@@ -32,10 +32,10 @@ from <code>display:none</code> to <code>display:block</code> and transition</p>
 // TODO: check for multiple classes of multiple elements</p>
 </dd>
 <dt><a href="#addEvent">addEvent(el, ev, fn, [opts])</a></dt>
-<dd><p>Shorthand for <code>element.addEventListener</code>, works with multiple elements</p>
+<dd><p>Shorthand for <code>element.addEventListener</code></p>
 </dd>
 <dt><a href="#removeEvent">removeEvent(el, ev, fn, [opts])</a></dt>
-<dd><p>Shorthand for <code>element.removeEventListener</code>, works with multiple elements</p>
+<dd><p>Shorthand for <code>element.removeEventListener</code></p>
 </dd>
 <dt><a href="#getTopPos">getTopPos(el, [topEl])</a> ⇒ <code>Number</code></dt>
 <dd><p>Gets an element top position</p>
@@ -46,6 +46,18 @@ from <code>display:none</code> to <code>display:block</code> and transition</p>
 <dt><a href="#getElementIndex">getElementIndex(el)</a> ⇒ <code>Number</code></dt>
 <dd><p>Similar to jQuery <code>$( el ).index()</code>
 index start at 0</p>
+</dd>
+<dt><a href="#getAttr">getAttr(el, attr)</a> ⇒ <code>String</code></dt>
+<dd><p>Shorthand for <code>element.getAttribute</code></p>
+</dd>
+<dt><a href="#setAttr">setAttr(el, attr, val)</a></dt>
+<dd><p>Shorthand for <code>element.setAttribute</code></p>
+</dd>
+<dt><a href="#remAttr">remAttr(el, attr)</a></dt>
+<dd><p>Shorthand for <code>element.removeAttribute</code></p>
+</dd>
+<dt><a href="#hasAttr">hasAttr(el, attr)</a> ⇒ <code>Boolean</code></dt>
+<dd><p>Shorthand for <code>element.hasAttribute</code></p>
 </dd>
 </dl>
 
@@ -199,7 +211,7 @@ Checks if an element has a class or not
 <a name="addEvent"></a>
 
 ## addEvent(el, ev, fn, [opts])
-Shorthand for `element.addEventListener`, works with multiple elements
+Shorthand for `element.addEventListener`
 
 **Kind**: global function  
 
@@ -213,7 +225,7 @@ Shorthand for `element.addEventListener`, works with multiple elements
 <a name="removeEvent"></a>
 
 ## removeEvent(el, ev, fn, [opts])
-Shorthand for `element.removeEventListener`, works with multiple elements
+Shorthand for `element.removeEventListener`
 
 **Kind**: global function  
 
@@ -262,6 +274,57 @@ index start at 0
 | Param | Type | Description |
 | --- | --- | --- |
 | el | <code>Element</code> | An HTML element |
+
+<a name="getAttr"></a>
+
+## getAttr(el, attr) ⇒ <code>String</code>
+Shorthand for `element.getAttribute`
+
+**Kind**: global function  
+**Returns**: <code>String</code> - - The attribute's value  
+
+| Param | Type | Description |
+| --- | --- | --- |
+| el | <code>Element</code> | An HTML element |
+| attr | <code>String</code> | The attribute to retrieve |
+
+<a name="setAttr"></a>
+
+## setAttr(el, attr, val)
+Shorthand for `element.setAttribute`
+
+**Kind**: global function  
+
+| Param | Type | Description |
+| --- | --- | --- |
+| el | <code>Element</code> | An HTML element |
+| attr | <code>String</code> | The attribute to retrieve |
+| val | <code>String</code> | The value to set to the attribute |
+
+<a name="remAttr"></a>
+
+## remAttr(el, attr)
+Shorthand for `element.removeAttribute`
+
+**Kind**: global function  
+
+| Param | Type | Description |
+| --- | --- | --- |
+| el | <code>Element</code> | An HTML element |
+| attr | <code>String</code> | The attribute to remove |
+
+<a name="hasAttr"></a>
+
+## hasAttr(el, attr) ⇒ <code>Boolean</code>
+Shorthand for `element.hasAttribute`
+
+**Kind**: global function  
+**Returns**: <code>Boolean</code> - - Whether the attribute exists  
+
+| Param | Type | Description |
+| --- | --- | --- |
+| el | <code>Element</code> | An HTML element |
+| attr | <code>String</code> | The attribute to check the existance of |
 
 <a name="foreachCB"></a>
 

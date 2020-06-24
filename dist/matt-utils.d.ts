@@ -82,7 +82,7 @@ declare module "index" {
      */
     export function hasClass(el: Element, ...classes: string[]): boolean;
     /**
-     * Shorthand for `element.addEventListener`, works with multiple elements
+     * Shorthand for `element.addEventListener`
      *
      * @param {Element|HTMLCollection|NodeList} el - A list of elements
      * @param {String} ev - Event's name
@@ -91,7 +91,7 @@ declare module "index" {
      */
     export function addEvent(el: Element | HTMLCollection | NodeList, ev: string, fn: Function, opts?: any): void;
     /**
-     * Shorthand for `element.removeEventListener`, works with multiple elements
+     * Shorthand for `element.removeEventListener`
      *
      * @param {Element|HTMLCollection|NodeList} el - A list of elements
      * @param {String} ev - Event's name
@@ -126,6 +126,39 @@ declare module "index" {
      * @returns {Number} - The element's index
      */
     export function getElementIndex(el: Element): number;
+    /**
+     * Shorthand for `element.getAttribute`
+     *
+     * @param {Element} el - An HTML element
+     * @param {String} attr - The attribute to retrieve
+     *
+     * @returns {String} - The attribute's value
+     */
+    export function getAttr(el: Element, attr: string): string;
+    /**
+     * Shorthand for `element.setAttribute`
+     *
+     * @param {Element} el - An HTML element
+     * @param {String} attr - The attribute to retrieve
+     * @param {String} val - The value to set to the attribute
+     */
+    export function setAttr(el: Element, attr: string, val: string): void;
+    /**
+     * Shorthand for `element.removeAttribute`
+     *
+     * @param {Element} el - An HTML element
+     * @param {String} attr - The attribute to remove
+     */
+    export function remAttr(el: Element, attr: string): void;
+    /**
+     * Shorthand for `element.hasAttribute`
+     *
+     * @param {Element} el - An HTML element
+     * @param {String} attr - The attribute to check the existance of
+     *
+     * @returns {Boolean} - Whether the attribute exists
+     */
+    export function hasAttr(el: Element, attr: string): boolean;
     /**
      * Foreach callback
      */
