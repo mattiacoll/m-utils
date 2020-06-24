@@ -966,21 +966,37 @@ function getElementIndex(el) {
 
   return index;
 }
+function getAttr(el, attr) {
+  return el.getAttribute(attr);
+}
+function setAttr(el, attr, val) {
+  el.setAttribute(attr, val);
+}
+function remAttr(el, attr) {
+  el.removeAttribute(attr);
+}
+function hasAttr(el, attr) {
+  return el.hasAttribute(attr);
+}
 
 exports.addClass = addClass;
 exports.addEvent = addEvent;
 exports.byClass = byClass;
 exports.byId = byId;
 exports.forEachHTML = forEachHTML;
+exports.getAttr = getAttr;
 exports.getElementIndex = getElementIndex;
 exports.getLeftPos = getLeftPos;
 exports.getTopPos = getTopPos;
+exports.hasAttr = hasAttr;
 exports.hasClass = hasClass;
 exports.nextFrame = nextFrame;
 exports.query = query;
 exports.queryAll = queryAll;
+exports.remAttr = remAttr;
 exports.removeClass = removeClass;
 exports.removeEvent = removeEvent;
+exports.setAttr = setAttr;
 
 Object.defineProperty(exports, '__esModule', { value: true });
 
