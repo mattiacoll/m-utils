@@ -1,4 +1,4 @@
-declare module "index" {
+declare module "matt-utils" {
     /**
      * Shorthand for `document.getElementById`
      *

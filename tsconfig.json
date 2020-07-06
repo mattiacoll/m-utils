@@ -1,6 +1,6 @@
 {
   "files": [
-    "src/index.js"
+    "src/matt-utils.js"
   ],
   "compilerOptions": {
     /* Basic Options */

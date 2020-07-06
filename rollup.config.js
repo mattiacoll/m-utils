@@ -7,7 +7,7 @@ import commonjs from '@rollup/plugin-commonjs';
 export default [
 	// Custom per tutte le pagine
 	{
-		input: 'src/index.js',
+		input: 'src/matt-utils.js',
 		output: [
 			{
 				file:		'dist/matt-utils.js',
