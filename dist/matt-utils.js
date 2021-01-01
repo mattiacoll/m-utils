@@ -1,7 +1,7 @@
 (function (global, factory) {
 typeof exports === 'object' && typeof module !== 'undefined' ? factory(exports) :
 typeof define === 'function' && define.amd ? define(['exports'], factory) :
-(global = global || self, factory(global['matt-utils'] = {}));
+(global = typeof globalThis !== 'undefined' ? globalThis : global || self, factory(global['matt-utils'] = {}));
 }(this, (function (exports) {
 function byId(id) {
   return document.getElementById(id);
