@@ -1,4 +1,4 @@
-function t(t){return document.getElementById(t)}function n(t,n=document){return n.getElementsByClassName(t)}function e(t,n=document){return n.querySelector(t)}function o(t,n=document){return n.querySelectorAll(t)}function u(t,n,e){for(let o=0,u=t.length;o<u;o++)n.call(e,t[o],o);}function f(t,...n){function e(t,...n){n.forEach((n=>{t.classList.add(n);}));}void 0===t.length?e(t,...n):u(t,(t=>{e(t,...n);}));}function s(t,...n){function e(t,...n){n.forEach((n=>{t.classList.remove(n);}));}void 0===t.length?e(t,...n):u(t,(t=>{e(t,...n);}));}function d(t,...n){let e=!1;return n.forEach((n=>{e=t.classList.contains(n);})),e}
+function t(t){return document.getElementById(t)}function n(t,n=document){return n.getElementsByClassName(t)}function e(t,n=document){return n.querySelector(t)}function o(t,n=document){return n.querySelectorAll(t)}function u(t,n,e){for(let o=0,u=t.length;o<u;o++)n.call(e,t[o],o);}function f(t,...n){function e(t,...n){n.forEach((n=>{t.classList.add(n);}));}void 0===t.length?e(t,...n):u(t,(t=>{e(t,...n);}));}function s(t,...n){function e(t,...n){n.forEach((n=>{t.classList.remove(n);}));}void 0===t.length?e(t,...n):u(t,(t=>{e(t,...n);}));}function d(t,...n){let e=0;return n.forEach((n=>{t.classList.contains(n)&&e++;})),e===n.length}
 
 document.body.innerHTML = `
 	<div id="get-el-1" class="outer">
@@ -34,6 +34,7 @@ describe( 'Classes', () => {
 
 			expect( el ).not.toBe( null );
 			expect( d( el, 'test-byId' ) ).toEqual( true );
+			expect( d( el, 'test-random' ) ).toEqual( false );
 
 		});
 
@@ -66,6 +67,8 @@ describe( 'Classes', () => {
 
 			expect( el ).not.toBe( null );
 			expect( d( el, 'test-byId', 'test-byId-2' ) ).toEqual( true );
+			expect( d( el, 'test-byId', 'test-random' ) ).toEqual( false );
+			expect( d( el, 'test-random', 'test-byId-2' ) ).toEqual( false );
 
 		});
 
@@ -103,6 +106,7 @@ describe( 'Classes', () => {
 
 			expect( el ).not.toBe( null );
 			expect( d( el, 'test-query' ) ).toEqual( true );
+			expect( d( el, 'test-random' ) ).toEqual( false );
 
 		});
 
@@ -135,6 +139,8 @@ describe( 'Classes', () => {
 
 			expect( el ).not.toBe( null );
 			expect( d( el, 'test-query', 'test-query-2' ) ).toEqual( true );
+			expect( d( el, 'test-query', 'test-random' ) ).toEqual( false );
+			expect( d( el, 'test-random', 'test-query-2' ) ).toEqual( false );
 
 		});
 
@@ -172,6 +178,7 @@ describe( 'Classes', () => {
 
 			expect( el.length ).not.toBe( 0 );
 			expect( d( el[0], 'test-byClass' ) ).toEqual( true );
+			expect( d( el[0], 'test-random' ) ).toEqual( false );
 
 		});
 
@@ -230,6 +237,8 @@ describe( 'Classes', () => {
 
 			expect( el.length ).not.toBe( 0 );
 			expect( d( el[0], 'test-byClass', 'test-byClass-2' ) ).toEqual( true );
+			expect( d( el[0], 'test-byClass', 'test-random' ) ).toEqual( false );
+			expect( d( el[0], 'test-random', 'test-byClass-2' ) ).toEqual( false );
 
 		});
 
@@ -299,6 +308,7 @@ describe( 'Classes', () => {
 
 			expect( el.length ).not.toBe( 0 );
 			expect( d( el[0], 'test-queryAll' ) ).toEqual( true );
+			expect( d( el[0], 'test-random' ) ).toEqual( false );
 
 		});
 
@@ -357,6 +367,8 @@ describe( 'Classes', () => {
 
 			expect( el.length ).not.toBe( 0 );
 			expect( d( el[0], 'test-queryAll', 'test-queryAll-2' ) ).toEqual( true );
+			expect( d( el[0], 'test-queryAll', 'test-random' ) ).toEqual( false );
+			expect( d( el[0], 'test-random', 'test-queryAll-2' ) ).toEqual( false );
 
 		});
 

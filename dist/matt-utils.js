@@ -62,11 +62,11 @@ function removeClass(el, ...classes) {
   }
 }
 function hasClass(el, ...classes) {
-  let hasClasses = false;
+  let numClasses = 0;
   classes.forEach(cls => {
-    hasClasses = el.classList.contains(cls);
+    if (el.classList.contains(cls)) numClasses++;
   });
-  return hasClasses;
+  return numClasses === classes.length;
 }
 
 function addEvent(el, ev, fn, opts) {

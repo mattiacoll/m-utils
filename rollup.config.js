@@ -30,8 +30,6 @@ files.forEach( ( file ) => {
 	});
 });
 
-console.log( tests );
-
 
 export default [
 	// Custom per tutte le pagine

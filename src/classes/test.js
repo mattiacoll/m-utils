@@ -34,6 +34,7 @@ describe( 'Classes', () => {
 
 			expect( el ).not.toBe( null );
 			expect( hasClass( el, 'test-byId' ) ).toEqual( true );
+			expect( hasClass( el, 'test-random' ) ).toEqual( false );
 
 		});
 
@@ -66,6 +67,8 @@ describe( 'Classes', () => {
 
 			expect( el ).not.toBe( null );
 			expect( hasClass( el, 'test-byId', 'test-byId-2' ) ).toEqual( true );
+			expect( hasClass( el, 'test-byId', 'test-random' ) ).toEqual( false );
+			expect( hasClass( el, 'test-random', 'test-byId-2' ) ).toEqual( false );
 
 		});
 
@@ -103,6 +106,7 @@ describe( 'Classes', () => {
 
 			expect( el ).not.toBe( null );
 			expect( hasClass( el, 'test-query' ) ).toEqual( true );
+			expect( hasClass( el, 'test-random' ) ).toEqual( false );
 
 		});
 
@@ -135,6 +139,8 @@ describe( 'Classes', () => {
 
 			expect( el ).not.toBe( null );
 			expect( hasClass( el, 'test-query', 'test-query-2' ) ).toEqual( true );
+			expect( hasClass( el, 'test-query', 'test-random' ) ).toEqual( false );
+			expect( hasClass( el, 'test-random', 'test-query-2' ) ).toEqual( false );
 
 		});
 
@@ -172,6 +178,7 @@ describe( 'Classes', () => {
 
 			expect( el.length ).not.toBe( 0 );
 			expect( hasClass( el[0], 'test-byClass' ) ).toEqual( true );
+			expect( hasClass( el[0], 'test-random' ) ).toEqual( false );
 
 		});
 
@@ -230,6 +237,8 @@ describe( 'Classes', () => {
 
 			expect( el.length ).not.toBe( 0 );
 			expect( hasClass( el[0], 'test-byClass', 'test-byClass-2' ) ).toEqual( true );
+			expect( hasClass( el[0], 'test-byClass', 'test-random' ) ).toEqual( false );
+			expect( hasClass( el[0], 'test-random', 'test-byClass-2' ) ).toEqual( false );
 
 		});
 
@@ -299,6 +308,7 @@ describe( 'Classes', () => {
 
 			expect( el.length ).not.toBe( 0 );
 			expect( hasClass( el[0], 'test-queryAll' ) ).toEqual( true );
+			expect( hasClass( el[0], 'test-random' ) ).toEqual( false );
 
 		});
 
@@ -357,6 +367,8 @@ describe( 'Classes', () => {
 
 			expect( el.length ).not.toBe( 0 );
 			expect( hasClass( el[0], 'test-queryAll', 'test-queryAll-2' ) ).toEqual( true );
+			expect( hasClass( el[0], 'test-queryAll', 'test-random' ) ).toEqual( false );
+			expect( hasClass( el[0], 'test-random', 'test-queryAll-2' ) ).toEqual( false );
 
 		});
 
