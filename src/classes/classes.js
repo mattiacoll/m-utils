@@ -46,7 +46,7 @@ export function removeClass( el, ...classes ) {
 	}
 
 	/**
-	 * Adds classes to a single element
+	 * Removes classes to a single element
 	 *
 	 * @param {Element} elem - An HTML element
 	 * @param {...String} remClass - Classes to remove

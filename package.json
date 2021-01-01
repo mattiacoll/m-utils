@@ -8,7 +8,7 @@
     "rl": "rollup -cw",
     "declarations": "tsc -p tsconfig.json",
     "build:prod": "rollup -c & npm run declarations",
-    "docs": "jsdoc2md src/matt-utils.js > api.md",
+    "docs": "jsdoc2md src/**/*.js > api.md",
     "test": "jest --verbose"
   },
   "repository": {
