@@ -3,37 +3,34 @@ import { eslint } from 'rollup-plugin-eslint';
 import { terser } from 'rollup-plugin-terser';
 import resolve from '@rollup/plugin-node-resolve';
 import commonjs from '@rollup/plugin-commonjs';
-
-import path from 'path';
-import fs from 'fs';
+import { glob } from 'glob';
 
 const tests = [];
 
 
 //joining path of directory 
-const directoryPath = path.join( __dirname, 'src/tests' );
+const files = glob.sync( 'src/**/test.js' );
 
-//passsing directoryPath and callback function
-fs.readdirSync( directoryPath ).forEach( ( file ) => {
+files.forEach( ( file ) => {
 
-	//listing all files using forEach
+	const split = file.split( '/' ),
+		fileName	= split[split.length - 2];
+
 	tests.push({
-		input: `src/tests/${file}`,
+		input: file,
 		output: {
-			dir: '__tests__',
+			file: `__tests__/${fileName}.js`,
 		},
 		plugins: [
-			/* eslint({
-				exclude: 'node_modules/**',
-			}), */
 			commonjs({
 				include:	 /node_modules/,
 				sourceMap: false,
 			}),
 		],
 	});
-
 });
+
+console.log( tests );
 
 
 export default [
