@@ -1,4 +1,4 @@
-function t(t){return document.getElementById(t)}function m(t){let n=0;for(;t=t.previousElementSibling;)n++;return n}
+import { byId, getElementIndex } from '../../dist/matt-utils.min';
 
 document.body.innerHTML = `
 	<div id="get-el-1" class="outer">
@@ -20,18 +20,18 @@ describe( 'Indexes', () => {
 	// add 1 class
 	test( 'Get parent index', () => {
 
-		const el = t( 'get-el-3' );
+		const el = byId( 'get-el-3' );
 
 		expect( el ).not.toBe( null );
-		expect( m( el ) ).toEqual( 2 );
+		expect( getElementIndex( el ) ).toEqual( 2 );
 	});
 
 	test( 'Get child index', () => {
 
-		const el = t( 'inner-3-3' );
+		const el = byId( 'inner-3-3' );
 
 		expect( el ).not.toBe( null );
-		expect( m( el ) ).toEqual( 3 );
+		expect( getElementIndex( el ) ).toEqual( 3 );
 	});
 
 });

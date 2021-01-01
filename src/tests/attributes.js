@@ -1,4 +1,4 @@
-function t(t){return document.getElementById(t)}function e(t,n=document){return n.querySelector(t)}function g(t,n){return t.getAttribute(n)}function v(t,n,e){t.setAttribute(n,e);}function E(t,n){t.removeAttribute(n);}function b(t,n){return t.hasAttribute(n)}
+import { byId, query, getAttr, setAttr, remAttr, hasAttr } from '../../dist/matt-utils.min';
 
 document.body.innerHTML = `
 	<div id="get-el-1" class="outer">
@@ -19,11 +19,11 @@ describe( 'Attributes', () => {
 
 		test( 'Check setAttr', () => {
 
-			const getEl = t( 'get-el-1' );
+			const getEl = byId( 'get-el-1' );
 
 			expect( getEl ).not.toBe( null );
 
-			v( getEl, 'new-attr', '2' );
+			setAttr( getEl, 'new-attr', '2' );
 			expect( getEl.outerHTML ).toBe( `<div id="get-el-1" class="outer" new-attr="2">
 		<div id="inner-1" class="inner"></div>
 	</div>` );
@@ -32,32 +32,32 @@ describe( 'Attributes', () => {
 
 		test( 'Check getAttr', () => {
 
-			const getEl = t( 'get-el-1' );
+			const getEl = byId( 'get-el-1' );
 
 			expect( getEl ).not.toBe( null );
 
-			const newAttr = g( getEl, 'new-attr' );
+			const newAttr = getAttr( getEl, 'new-attr' );
 			expect( newAttr ).toBe( '2' );
 
 		});
 
 		test( 'Check hasAttr', () => {
 
-			const getEl = t( 'get-el-1' );
+			const getEl = byId( 'get-el-1' );
 
 			expect( getEl ).not.toBe( null );
-			expect( b( getEl, 'new-attr' ) ).toBe( true );
-			expect( b( getEl, 'otherAttr' ) ).toBe( false );
+			expect( hasAttr( getEl, 'new-attr' ) ).toBe( true );
+			expect( hasAttr( getEl, 'otherAttr' ) ).toBe( false );
 
 		});
 
 		test( 'Check remAttr', () => {
 
-			const getEl = t( 'get-el-1' );
+			const getEl = byId( 'get-el-1' );
 
 			expect( getEl ).not.toBe( null );
 
-			E( getEl, 'new-attr' );
+			remAttr( getEl, 'new-attr' );
 
 			expect( getEl.getAttribute( 'new-attr' ) ).toBe( null );
 
@@ -70,11 +70,11 @@ describe( 'Attributes', () => {
 
 		test( 'Check setAttr', () => {
 
-			const getEl = e( '#get-el-1' );
+			const getEl = query( '#get-el-1' );
 
 			expect( getEl ).not.toBe( null );
 
-			v( getEl, 'new-attr', '2' );
+			setAttr( getEl, 'new-attr', '2' );
 			expect( getEl.outerHTML ).toBe( `<div id="get-el-1" class="outer" new-attr="2">
 		<div id="inner-1" class="inner"></div>
 	</div>` );
@@ -83,32 +83,32 @@ describe( 'Attributes', () => {
 
 		test( 'Check getAttr', () => {
 
-			const getEl = e( '#get-el-1' );
+			const getEl = query( '#get-el-1' );
 
 			expect( getEl ).not.toBe( null );
 
-			const newAttr = g( getEl, 'new-attr' );
+			const newAttr = getAttr( getEl, 'new-attr' );
 			expect( newAttr ).toBe( '2' );
 
 		});
 
 		test( 'Check hasAttr', () => {
 
-			const getEl = e( '#get-el-1' );
+			const getEl = query( '#get-el-1' );
 
 			expect( getEl ).not.toBe( null );
-			expect( b( getEl, 'new-attr' ) ).toBe( true );
-			expect( b( getEl, 'otherAttr' ) ).toBe( false );
+			expect( hasAttr( getEl, 'new-attr' ) ).toBe( true );
+			expect( hasAttr( getEl, 'otherAttr' ) ).toBe( false );
 
 		});
 
 		test( 'Check remAttr', () => {
 
-			const getEl = e( '#get-el-1' );
+			const getEl = query( '#get-el-1' );
 
 			expect( getEl ).not.toBe( null );
 
-			E( getEl, 'new-attr' );
+			remAttr( getEl, 'new-attr' );
 
 			expect( getEl.getAttribute( 'new-attr' ) ).toBe( null );
 

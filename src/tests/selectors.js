@@ -1,4 +1,4 @@
-function t(t){return document.getElementById(t)}function n(t,n=document){return n.getElementsByClassName(t)}function e(t,n=document){return n.querySelector(t)}function o(t,n=document){return n.querySelectorAll(t)}
+import { byId, byClass, query, queryAll } from '../../dist/matt-utils.min';
 
 document.body.innerHTML = `
 	<div id="get-el-1" class="outer">
@@ -19,7 +19,7 @@ describe( 'Selectors', () => {
 
 		test( 'Check byId', () => {
 
-			const getEl = t( 'get-el-1' );
+			const getEl = byId( 'get-el-1' );
 
 			expect( getEl ).not.toBe( null );
 			expect( getEl ).toBe( document.getElementById( 'get-el-1' ) );
@@ -33,7 +33,7 @@ describe( 'Selectors', () => {
 
 		test( 'Check byClass', () => {
 
-			const getEls = n( 'outer' );
+			const getEls = byClass( 'outer' );
 
 			expect( getEls.length ).not.toBe( 0 );
 			expect( getEls[0] ).toBe( document.getElementsByClassName( 'outer' )[0] );
@@ -45,7 +45,7 @@ describe( 'Selectors', () => {
 		test( 'Check byClass with parent', () => {
 
 			const parent = document.getElementById( 'get-el-1' ),
-				getElsPar	 = n( 'inner', parent );
+				getElsPar	 = byClass( 'inner', parent );
 
 			expect( getElsPar.length ).not.toBe( 0 );
 			expect( getElsPar[0] ).toBe( document.getElementById( 'inner-1' ) );
@@ -59,7 +59,7 @@ describe( 'Selectors', () => {
 
 		test( 'Check query', () => {
 
-			const getEl = e( '#get-el-1' );
+			const getEl = query( '#get-el-1' );
 
 			expect( getEl ).not.toBe( null );
 			expect( getEl ).toBe( document.querySelector( '#get-el-1' ) );
@@ -68,8 +68,8 @@ describe( 'Selectors', () => {
 
 		test( 'Check query with parent', () => {
 
-			const parent = e( '#get-el-1' ),
-				getEl			 = e( '#inner-1', parent );
+			const parent = query( '#get-el-1' ),
+				getEl			 = query( '#inner-1', parent );
 
 			expect( getEl ).not.toBe( null );
 			expect( getEl ).toBe( document.querySelector( '#inner-1' ) );
@@ -83,7 +83,7 @@ describe( 'Selectors', () => {
 
 		test( 'Check queryAll', () => {
 
-			const getEl = o( '#get-el-1' );
+			const getEl = queryAll( '#get-el-1' );
 
 			expect( getEl.length ).not.toBe( 0 );
 			expect( getEl[0] ).toBe( document.querySelectorAll( '#get-el-1' )[0] );
@@ -92,8 +92,8 @@ describe( 'Selectors', () => {
 
 		test( 'Check queryAll with parent', () => {
 
-			const parent = e( '#get-el-1' ),
-				getEls		 = o( '.inner', parent );
+			const parent = query( '#get-el-1' ),
+				getEls		 = queryAll( '.inner', parent );
 
 			expect( getEls.length ).not.toBe( 0 );
 			expect( getEls[0] ).toBe( document.querySelectorAll( '.inner' )[0] );

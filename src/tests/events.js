@@ -1,4 +1,4 @@
-function t(t){return document.getElementById(t)}function f(t,n,e,o){t.addEventListener(n,e,o);}function s(t,n,e,o){t.removeEventListener(n,e,o);}
+import { byId, addEvent, removeEvent } from '../../dist/matt-utils.min';
 
 document.body.innerHTML = `
 	<div id="get-el-1" class="outer">
@@ -26,10 +26,10 @@ describe( 'Events', () => {
 	// add 1 class
 	test( 'Add event', () => {
 
-		const el = t( 'get-el-3' );
+		const el = byId( 'get-el-3' );
 
 		expect( el ).not.toBe( null );
-		f( el, 'click', eventFn );
+		addEvent( el, 'click', eventFn );
 
 		el.click();
 
@@ -41,12 +41,12 @@ describe( 'Events', () => {
 	// add 1 class
 	test( 'Remove event', () => {
 
-		const el = t( 'get-el-3' );
+		const el = byId( 'get-el-3' );
 
 		expect( el ).not.toBe( null );
 
 		variable = undefined;
-		s( el, 'click', eventFn );
+		removeEvent( el, 'click', eventFn );
 
 		el.click();
 

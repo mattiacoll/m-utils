@@ -1,4 +1,4 @@
-function t(t){return document.getElementById(t)}function n(t,n=document){return n.getElementsByClassName(t)}function e(t,n=document){return n.querySelector(t)}function o(t,n=document){return n.querySelectorAll(t)}function u(t,n,e){for(let o=0,u=t.length;o<u;o++)n.call(e,t[o],o);}function r(t,...n){function e(t,...n){n.forEach((n=>{t.classList.add(n);}));}void 0===t.length?e(t,...n):u(t,(t=>{e(t,...n);}));}function c(t,...n){function e(t,...n){n.forEach((n=>{t.classList.remove(n);}));}void 0===t.length?e(t,...n):u(t,(t=>{e(t,...n);}));}function l(t,...n){let e=!1;return n.forEach((n=>{e=t.classList.contains(n);})),e}
+import { byId, byClass, query, queryAll, addClass, removeClass, hasClass } from '../../dist/matt-utils.min';
 
 document.body.innerHTML = `
 	<div id="get-el-1" class="outer">
@@ -20,30 +20,30 @@ describe( 'Classes', () => {
 		// add 1 class
 		test( 'Add single class', () => {
 
-			let el = t( 'get-el-1' );
+			let el = byId( 'get-el-1' );
 
 			expect( el ).not.toBe( null );
-			r( el, 'test-byId' );
+			addClass( el, 'test-byId' );
 
 			expect( el.getAttribute( 'class' ) ).toEqual( expect.stringContaining( 'test-byId' ) );
 		});
 
 		test( 'Has class', () => {
 
-			let el = t( 'get-el-1' );
+			let el = byId( 'get-el-1' );
 
 			expect( el ).not.toBe( null );
-			expect( l( el, 'test-byId' ) ).toEqual( true );
+			expect( hasClass( el, 'test-byId' ) ).toEqual( true );
 
 		});
 
 		// remove 1 class
 		test( 'Remove single class', () => {
 
-			let el = t( 'get-el-1' );
+			let el = byId( 'get-el-1' );
 
 			expect( el ).not.toBe( null );
-			c( el, 'test-byId' );
+			removeClass( el, 'test-byId' );
 
 			expect( el.getAttribute( 'class' ) ).toEqual( expect.not.stringContaining( 'test-byId' ) );
 		});
@@ -51,10 +51,10 @@ describe( 'Classes', () => {
 		// add 2 classes
 		test( 'Add multiple classes', () => {
 
-			let el = t( 'get-el-1' );
+			let el = byId( 'get-el-1' );
 
 			expect( el ).not.toBe( null );
-			r( el, 'test-byId', 'test-byId-2' );
+			addClass( el, 'test-byId', 'test-byId-2' );
 
 			expect( el.getAttribute( 'class' ) ).toEqual( expect.stringContaining( 'test-byId-2' ) );
 			expect( el.getAttribute( 'class' ) ).toEqual( expect.stringContaining( 'test-byId' ) );
@@ -62,20 +62,20 @@ describe( 'Classes', () => {
 
 		test( 'Has class multiple', () => {
 
-			let el = t( 'get-el-1' );
+			let el = byId( 'get-el-1' );
 
 			expect( el ).not.toBe( null );
-			expect( l( el, 'test-byId', 'test-byId-2' ) ).toEqual( true );
+			expect( hasClass( el, 'test-byId', 'test-byId-2' ) ).toEqual( true );
 
 		});
 
 		// remove 2 classes
 		test( 'Remove multiple classes', () => {
 
-			let el = t( 'get-el-1' );
+			let el = byId( 'get-el-1' );
 
 			expect( el ).not.toBe( null );
-			c( el, 'test-byId', 'test-byId-2' );
+			removeClass( el, 'test-byId', 'test-byId-2' );
 
 			expect( el.getAttribute( 'class' ) ).toEqual( expect.not.stringContaining( 'test-byId-2' ) );
 			expect( el.getAttribute( 'class' ) ).toEqual( expect.not.stringContaining( 'test-byId' ) );
@@ -89,30 +89,30 @@ describe( 'Classes', () => {
 		// add 1 class
 		test( 'Add single class', () => {
 
-			let el = e( '#get-el-1' );
+			let el = query( '#get-el-1' );
 
 			expect( el ).not.toBe( null );
-			r( el, 'test-query' );
+			addClass( el, 'test-query' );
 
 			expect( el.getAttribute( 'class' ) ).toEqual( expect.stringContaining( 'test-query' ) );
 		});
 
 		test( 'Has class', () => {
 
-			let el = e( '#get-el-1' );
+			let el = query( '#get-el-1' );
 
 			expect( el ).not.toBe( null );
-			expect( l( el, 'test-query' ) ).toEqual( true );
+			expect( hasClass( el, 'test-query' ) ).toEqual( true );
 
 		});
 
 		// remove 1 class
 		test( 'Remove single class', () => {
 
-			let el = e( '#get-el-1' );
+			let el = query( '#get-el-1' );
 
 			expect( el ).not.toBe( null );
-			c( el, 'test-query' );
+			removeClass( el, 'test-query' );
 
 			expect( el.getAttribute( 'class' ) ).toEqual( expect.not.stringContaining( 'test-query' ) );
 		});
@@ -120,10 +120,10 @@ describe( 'Classes', () => {
 		// add 2 classes
 		test( 'Add multiple classes', () => {
 
-			let el = e( '#get-el-1' );
+			let el = query( '#get-el-1' );
 
 			expect( el ).not.toBe( null );
-			r( el, 'test-query', 'test-query-2' );
+			addClass( el, 'test-query', 'test-query-2' );
 
 			expect( el.getAttribute( 'class' ) ).toEqual( expect.stringContaining( 'test-query-2' ) );
 			expect( el.getAttribute( 'class' ) ).toEqual( expect.stringContaining( 'test-query' ) );
@@ -131,20 +131,20 @@ describe( 'Classes', () => {
 
 		test( 'Has class multiple', () => {
 
-			let el = e( '#get-el-1' );
+			let el = query( '#get-el-1' );
 
 			expect( el ).not.toBe( null );
-			expect( l( el, 'test-query', 'test-query-2' ) ).toEqual( true );
+			expect( hasClass( el, 'test-query', 'test-query-2' ) ).toEqual( true );
 
 		});
 
 		// remove 2 classes
 		test( 'Remove multiple classes', () => {
 
-			let el = e( '#get-el-1' );
+			let el = query( '#get-el-1' );
 
 			expect( el ).not.toBe( null );
-			c( el, 'test-query', 'test-query-2' );
+			removeClass( el, 'test-query', 'test-query-2' );
 
 			expect( el.getAttribute( 'class' ) ).toEqual( expect.not.stringContaining( 'test-query-2' ) );
 			expect( el.getAttribute( 'class' ) ).toEqual( expect.not.stringContaining( 'test-query' ) );
@@ -158,30 +158,30 @@ describe( 'Classes', () => {
 		// add 1 class
 		test( 'Add single class to single el', () => {
 
-			let el = n( 'outer' );
+			let el = byClass( 'outer' );
 
 			expect( el.length ).not.toBe( 0 );
-			r( el[0], 'test-byClass' );
+			addClass( el[0], 'test-byClass' );
 
 			expect( el[0].getAttribute( 'class' ) ).toEqual( expect.stringContaining( 'test-byClass' ) );
 		});
 
 		test( 'Has class', () => {
 
-			let el = n( 'outer' );
+			let el = byClass( 'outer' );
 
 			expect( el.length ).not.toBe( 0 );
-			expect( l( el[0], 'test-byClass' ) ).toEqual( true );
+			expect( hasClass( el[0], 'test-byClass' ) ).toEqual( true );
 
 		});
 
 		// remove 1 class
 		test( 'Remove single class from single el', () => {
 
-			let el = n( 'outer' );
+			let el = byClass( 'outer' );
 
 			expect( el.length ).not.toBe( 0 );
-			c( el[0], 'test-byClass' );
+			removeClass( el[0], 'test-byClass' );
 
 			expect( el[0].getAttribute( 'class' ) ).toEqual( expect.not.stringContaining( 'test-byClass' ) );
 		});
@@ -189,10 +189,10 @@ describe( 'Classes', () => {
 		// add 1 class to 3 els
 		test( 'Add single class to multiple el', () => {
 
-			let el = n( 'outer' );
+			let el = byClass( 'outer' );
 
 			expect( el.length ).not.toBe( 0 );
-			r( el, 'test-byClass' );
+			addClass( el, 'test-byClass' );
 
 			expect( el[0].getAttribute( 'class' ) ).toEqual( expect.stringContaining( 'test-byClass' ) );
 			expect( el[1].getAttribute( 'class' ) ).toEqual( expect.stringContaining( 'test-byClass' ) );
@@ -202,10 +202,10 @@ describe( 'Classes', () => {
 		// remove 1 class to 3 els
 		test( 'Remove single class from multiple el', () => {
 
-			let el = n( 'outer' );
+			let el = byClass( 'outer' );
 
 			expect( el.length ).not.toBe( 0 );
-			c( el, 'test-byClass' );
+			removeClass( el, 'test-byClass' );
 
 			expect( el[0].getAttribute( 'class' ) ).toEqual( expect.not.stringContaining( 'test-byClass' ) );
 			expect( el[1].getAttribute( 'class' ) ).toEqual( expect.not.stringContaining( 'test-byClass' ) );
@@ -215,10 +215,10 @@ describe( 'Classes', () => {
 		// add 2 classes
 		test( 'Add multiple classes to single el', () => {
 
-			let el = n( 'outer' );
+			let el = byClass( 'outer' );
 
 			expect( el.length ).not.toBe( 0 );
-			r( el[0], 'test-byClass', 'test-byClass-2' );
+			addClass( el[0], 'test-byClass', 'test-byClass-2' );
 
 			expect( el[0].getAttribute( 'class' ) ).toEqual( expect.stringContaining( 'test-byClass-2' ) );
 			expect( el[0].getAttribute( 'class' ) ).toEqual( expect.stringContaining( 'test-byClass' ) );
@@ -226,20 +226,20 @@ describe( 'Classes', () => {
 
 		test( 'Has class multiple', () => {
 
-			let el = n( 'outer' );
+			let el = byClass( 'outer' );
 
 			expect( el.length ).not.toBe( 0 );
-			expect( l( el[0], 'test-byClass', 'test-byClass-2' ) ).toEqual( true );
+			expect( hasClass( el[0], 'test-byClass', 'test-byClass-2' ) ).toEqual( true );
 
 		});
 
 		// remove 2 classes
 		test( 'Remove multiple classes from single el', () => {
 
-			let el = n( 'outer' );
+			let el = byClass( 'outer' );
 
 			expect( el.length ).not.toBe( 0 );
-			c( el[0], 'test-byClass', 'test-byClass-2' );
+			removeClass( el[0], 'test-byClass', 'test-byClass-2' );
 
 			expect( el[0].getAttribute( 'class' ) ).toEqual( expect.not.stringContaining( 'test-byClass-2' ) );
 			expect( el[0].getAttribute( 'class' ) ).toEqual( expect.not.stringContaining( 'test-byClass' ) );
@@ -248,10 +248,10 @@ describe( 'Classes', () => {
 		// add 2 classes to 3 els
 		test( 'Add multiple classes to multiple el', () => {
 
-			let el = n( 'outer' );
+			let el = byClass( 'outer' );
 
 			expect( el.length ).not.toBe( 0 );
-			r( el, 'test-byClass', 'test-byClass-2' );
+			addClass( el, 'test-byClass', 'test-byClass-2' );
 
 			expect( el[0].getAttribute( 'class' ) ).toEqual( expect.stringContaining( 'test-byClass-2' ) );
 			expect( el[1].getAttribute( 'class' ) ).toEqual( expect.stringContaining( 'test-byClass-2' ) );
@@ -264,10 +264,10 @@ describe( 'Classes', () => {
 		// remove 2 classes to 3 els
 		test( 'Remove multiple classes from multiple el', () => {
 
-			let el = n( 'outer' );
+			let el = byClass( 'outer' );
 
 			expect( el.length ).not.toBe( 0 );
-			c( el, 'test-byClass', 'test-byClass-2' );
+			removeClass( el, 'test-byClass', 'test-byClass-2' );
 
 			expect( el[0].getAttribute( 'class' ) ).toEqual( expect.not.stringContaining( 'test-byClass-2' ) );
 			expect( el[1].getAttribute( 'class' ) ).toEqual( expect.not.stringContaining( 'test-byClass-2' ) );
@@ -285,30 +285,30 @@ describe( 'Classes', () => {
 		// add 1 class
 		test( 'Add single class to single el', () => {
 
-			let el = o( '.outer' );
+			let el = queryAll( '.outer' );
 
 			expect( el.length ).not.toBe( 0 );
-			r( el[0], 'test-queryAll' );
+			addClass( el[0], 'test-queryAll' );
 
 			expect( el[0].getAttribute( 'class' ) ).toEqual( expect.stringContaining( 'test-queryAll' ) );
 		});
 
 		test( 'Has class', () => {
 
-			let el = o( '.outer' );
+			let el = queryAll( '.outer' );
 
 			expect( el.length ).not.toBe( 0 );
-			expect( l( el[0], 'test-queryAll' ) ).toEqual( true );
+			expect( hasClass( el[0], 'test-queryAll' ) ).toEqual( true );
 
 		});
 
 		// remove 1 class
 		test( 'Remove single class from single el', () => {
 
-			let el = o( '.outer' );
+			let el = queryAll( '.outer' );
 
 			expect( el.length ).not.toBe( 0 );
-			c( el[0], 'test-queryAll' );
+			removeClass( el[0], 'test-queryAll' );
 
 			expect( el[0].getAttribute( 'class' ) ).toEqual( expect.not.stringContaining( 'test-queryAll' ) );
 		});
@@ -316,10 +316,10 @@ describe( 'Classes', () => {
 		// add 1 class to 3 els
 		test( 'Add single class to multiple el', () => {
 
-			let el = o( '.outer' );
+			let el = queryAll( '.outer' );
 
 			expect( el.length ).not.toBe( 0 );
-			r( el, 'test-queryAll' );
+			addClass( el, 'test-queryAll' );
 
 			expect( el[0].getAttribute( 'class' ) ).toEqual( expect.stringContaining( 'test-queryAll' ) );
 			expect( el[1].getAttribute( 'class' ) ).toEqual( expect.stringContaining( 'test-queryAll' ) );
@@ -329,10 +329,10 @@ describe( 'Classes', () => {
 		// remove 1 class to 3 els
 		test( 'Remove single class from multiple el', () => {
 
-			let el = o( '.outer' );
+			let el = queryAll( '.outer' );
 
 			expect( el.length ).not.toBe( 0 );
-			c( el, 'test-queryAll' );
+			removeClass( el, 'test-queryAll' );
 
 			expect( el[0].getAttribute( 'class' ) ).toEqual( expect.not.stringContaining( 'test-queryAll' ) );
 			expect( el[1].getAttribute( 'class' ) ).toEqual( expect.not.stringContaining( 'test-queryAll' ) );
@@ -342,10 +342,10 @@ describe( 'Classes', () => {
 		// add 2 classes
 		test( 'Add multiple classes to single el', () => {
 
-			let el = o( '.outer' );
+			let el = queryAll( '.outer' );
 
 			expect( el.length ).not.toBe( 0 );
-			r( el[0], 'test-queryAll', 'test-queryAll-2' );
+			addClass( el[0], 'test-queryAll', 'test-queryAll-2' );
 
 			expect( el[0].getAttribute( 'class' ) ).toEqual( expect.stringContaining( 'test-queryAll-2' ) );
 			expect( el[0].getAttribute( 'class' ) ).toEqual( expect.stringContaining( 'test-queryAll' ) );
@@ -353,20 +353,20 @@ describe( 'Classes', () => {
 
 		test( 'Has class multiple', () => {
 
-			let el = o( '.outer' );
+			let el = queryAll( '.outer' );
 
 			expect( el.length ).not.toBe( 0 );
-			expect( l( el[0], 'test-queryAll', 'test-queryAll-2' ) ).toEqual( true );
+			expect( hasClass( el[0], 'test-queryAll', 'test-queryAll-2' ) ).toEqual( true );
 
 		});
 
 		// remove 2 classes
 		test( 'Remove multiple classes from single el', () => {
 
-			let el = o( '.outer' );
+			let el = queryAll( '.outer' );
 
 			expect( el.length ).not.toBe( 0 );
-			c( el[0], 'test-queryAll', 'test-queryAll-2' );
+			removeClass( el[0], 'test-queryAll', 'test-queryAll-2' );
 
 			expect( el[0].getAttribute( 'class' ) ).toEqual( expect.not.stringContaining( 'test-queryAll-2' ) );
 			expect( el[0].getAttribute( 'class' ) ).toEqual( expect.not.stringContaining( 'test-queryAll' ) );
@@ -375,10 +375,10 @@ describe( 'Classes', () => {
 		// add 2 classes to 3 els
 		test( 'Add multiple classes to multiple el', () => {
 
-			let el = o( '.outer' );
+			let el = queryAll( '.outer' );
 
 			expect( el.length ).not.toBe( 0 );
-			r( el, 'test-queryAll', 'test-queryAll-2' );
+			addClass( el, 'test-queryAll', 'test-queryAll-2' );
 
 			expect( el[0].getAttribute( 'class' ) ).toEqual( expect.stringContaining( 'test-queryAll-2' ) );
 			expect( el[1].getAttribute( 'class' ) ).toEqual( expect.stringContaining( 'test-queryAll-2' ) );
@@ -391,10 +391,10 @@ describe( 'Classes', () => {
 		// remove 2 classes to 3 els
 		test( 'Remove multiple classes from multiple el', () => {
 
-			let el = o( '.outer' );
+			let el = queryAll( '.outer' );
 
 			expect( el.length ).not.toBe( 0 );
-			c( el, 'test-queryAll', 'test-queryAll-2' );
+			removeClass( el, 'test-queryAll', 'test-queryAll-2' );
 
 			expect( el[0].getAttribute( 'class' ) ).toEqual( expect.not.stringContaining( 'test-queryAll-2' ) );
 			expect( el[1].getAttribute( 'class' ) ).toEqual( expect.not.stringContaining( 'test-queryAll-2' ) );
