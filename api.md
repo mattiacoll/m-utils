@@ -20,8 +20,9 @@
 <dd><p>Shorthand for <code>element.classList.remove</code>, works with multiple nodes</p>
 </dd>
 <dt><a href="#hasClass">hasClass(el, ...classes)</a> ⇒ <code>Boolean</code></dt>
-<dd><p>Checks if an element has a class or not
-// TODO: check for multiple classes of multiple elements</p>
+<dd><p>Checks if an element has a class or not.
+If multiple elements are passed the result is true only if all
+the elements have all the specified classes.</p>
 </dd>
 <dt><a href="#addEvent">addEvent(el, ev, fn, [opts])</a></dt>
 <dd><p>Shorthand for <code>element.addEventListener</code></p>
@@ -171,16 +172,30 @@ Removes classes to a single element
 <a name="hasClass"></a>
 
 ## hasClass(el, ...classes) ⇒ <code>Boolean</code>
-Checks if an element has a class or not
-// TODO: check for multiple classes of multiple elements
+Checks if an element has a class or not.
+If multiple elements are passed the result is true only if all
+the elements have all the specified classes.
 
 **Kind**: global function  
 **Returns**: <code>Boolean</code> - - The element has the class  
 
 | Param | Type | Description |
 | --- | --- | --- |
-| el | <code>Element</code> | An HTML element |
+| el | <code>Element</code> \| <code>HTMLCollection</code> \| <code>NodeList</code> | A list of elements |
 | ...classes | <code>String</code> | Classes to check the presence of |
+
+<a name="hasClass..hasClassEl"></a>
+
+### hasClass~hasClassEl(elem, ...hasClasses) ⇒ <code>Boolean</code>
+Checks if an element has a class or not
+
+**Kind**: inner method of [<code>hasClass</code>](#hasClass)  
+**Returns**: <code>Boolean</code> - - The element has the class  
+
+| Param | Type | Description |
+| --- | --- | --- |
+| elem | <code>Element</code> | An HTML element |
+| ...hasClasses | <code>String</code> | Classes to check the presence of |
 
 <a name="addEvent"></a>
 
