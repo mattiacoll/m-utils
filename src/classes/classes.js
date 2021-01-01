@@ -59,24 +59,56 @@ export function removeClass( el, ...classes ) {
 }
 
 
+
 /**
- * Checks if an element has a class or not
- * // TODO: check for multiple classes of multiple elements
+ * Checks if an element has a class or not.
+ * If multiple elements are passed the result is true only if all
+ * the elements have all the specified classes.
  *
- * @param {Element} el - An HTML element
+ * @param {Element|HTMLCollection|NodeList} el - A list of elements
  * @param {...String} classes - Classes to check the presence of
  *
  * @returns {Boolean} - The element has the class
  */
 export function hasClass( el, ...classes ) {
 
-	let numClasses = 0;
+	let hasCls = false;
 
-	classes.forEach( ( cls ) => {
-		if ( el.classList.contains( cls ) )
-			numClasses++;
-	});
+	if ( el.length === undefined )
+		hasCls = hasClassEl( el, ...classes );
+	else {
 
-	return numClasses === classes.length;
+		let numClasses = 0;
 
+		forEachHTML( el, ( currEl ) => {
+			if ( hasClassEl( currEl, ...classes ) )
+				numClasses++;
+		});
+
+		hasCls = numClasses === el.length;
+
+	}
+
+	return hasCls;
+
+	/**
+	 * Checks if an element has a class or not
+	 *
+	 * @param {Element} elem - An HTML element
+	 * @param {...String} hasClasses - Classes to check the presence of
+	 *
+	 * @returns {Boolean} - The element has the class
+	 */
+	function hasClassEl( elem, ...hasClasses ) {
+
+		let numClasses = 0;
+
+		hasClasses.forEach( ( cls ) => {
+			if ( elem.classList.contains( cls ) )
+				numClasses++;
+		});
+
+		return numClasses === hasClasses.length;
+
+	}
 }

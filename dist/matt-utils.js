@@ -62,11 +62,23 @@ function removeClass(el, ...classes) {
   }
 }
 function hasClass(el, ...classes) {
-  let numClasses = 0;
-  classes.forEach(cls => {
-    if (el.classList.contains(cls)) numClasses++;
-  });
-  return numClasses === classes.length;
+  let hasCls = false;
+  if (el.length === undefined) hasCls = hasClassEl(el, ...classes);else {
+    let numClasses = 0;
+    forEachHTML(el, currEl => {
+      if (hasClassEl(currEl, ...classes)) numClasses++;
+    });
+    hasCls = numClasses === el.length;
+  }
+  return hasCls;
+
+  function hasClassEl(elem, ...hasClasses) {
+    let numClasses = 0;
+    hasClasses.forEach(cls => {
+      if (elem.classList.contains(cls)) numClasses++;
+    });
+    return numClasses === hasClasses.length;
+  }
 }
 
 function addEvent(el, ev, fn, opts) {
