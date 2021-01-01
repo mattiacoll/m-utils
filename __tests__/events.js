@@ -1,4 +1,4 @@
-function t(t){return document.getElementById(t)}function f(t,n,e,o){t.addEventListener(n,e,o);}function s(t,n,e,o){t.removeEventListener(n,e,o);}
+function t(t){return document.getElementById(t)}function a(t,n,e,o){t.addEventListener(n,e,o);}function m(t,n,e,o){t.removeEventListener(n,e,o);}
 
 document.body.innerHTML = `
 	<div id="get-el-1" class="outer">
@@ -29,7 +29,7 @@ describe( 'Events', () => {
 		const el = t( 'get-el-3' );
 
 		expect( el ).not.toBe( null );
-		f( el, 'click', eventFn );
+		a( el, 'click', eventFn );
 
 		el.click();
 
@@ -46,7 +46,7 @@ describe( 'Events', () => {
 		expect( el ).not.toBe( null );
 
 		variable = undefined;
-		s( el, 'click', eventFn );
+		m( el, 'click', eventFn );
 
 		el.click();
 

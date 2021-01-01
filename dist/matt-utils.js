@@ -10,6 +10,7 @@ function query(selector, parent = document) {
 function queryAll(selector, parent = document) {
   return parent.querySelectorAll(selector);
 }
+
 function forEachHTML(els, fn, scope) {
   for (let i = 0, numEls = els.length; i < numEls; i++) fn.call(scope, els[i], i);
 }
@@ -20,6 +21,20 @@ function nextFrame(fn) {
     });
   });
 }
+function getTopPos(el, topEl = document.body) {
+  return el.getBoundingClientRect().top - topEl.getBoundingClientRect().top;
+}
+function getLeftPos(el, topEl = document.body) {
+  return el.getBoundingClientRect().left - topEl.getBoundingClientRect().left;
+}
+function getElementIndex(el) {
+  let index = 0;
+
+  while (el = el.previousElementSibling) index++;
+
+  return index;
+}
+
 function addClass(el, ...classes) {
   if (el.length === undefined) addClassEl(el, ...classes);else {
     forEachHTML(el, currEl => {
@@ -53,25 +68,14 @@ function hasClass(el, ...classes) {
   });
   return hasClasses;
 }
+
 function addEvent(el, ev, fn, opts) {
   el.addEventListener(ev, fn, opts);
 }
 function removeEvent(el, ev, fn, opts) {
   el.removeEventListener(ev, fn, opts);
 }
-function getTopPos(el, topEl = document.body) {
-  return el.getBoundingClientRect().top - topEl.getBoundingClientRect().top;
-}
-function getLeftPos(el, topEl = document.body) {
-  return el.getBoundingClientRect().left - topEl.getBoundingClientRect().left;
-}
-function getElementIndex(el) {
-  let index = 0;
 
-  while (el = el.previousElementSibling) index++;
-
-  return index;
-}
 function getAttr(el, attr) {
   return el.getAttribute(attr);
 }

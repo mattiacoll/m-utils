@@ -1,4 +1,4 @@
-function t(t){return document.getElementById(t)}function n(t,n=document){return n.getElementsByClassName(t)}function e(t,n=document){return n.querySelector(t)}function o(t,n=document){return n.querySelectorAll(t)}function u(t,n,e){for(let o=0,u=t.length;o<u;o++)n.call(e,t[o],o);}function r(t,...n){function e(t,...n){n.forEach((n=>{t.classList.add(n);}));}void 0===t.length?e(t,...n):u(t,(t=>{e(t,...n);}));}function c(t,...n){function e(t,...n){n.forEach((n=>{t.classList.remove(n);}));}void 0===t.length?e(t,...n):u(t,(t=>{e(t,...n);}));}function l(t,...n){let e=!1;return n.forEach((n=>{e=t.classList.contains(n);})),e}
+function t(t){return document.getElementById(t)}function n(t,n=document){return n.getElementsByClassName(t)}function e(t,n=document){return n.querySelector(t)}function o(t,n=document){return n.querySelectorAll(t)}function u(t,n,e){for(let o=0,u=t.length;o<u;o++)n.call(e,t[o],o);}function f(t,...n){function e(t,...n){n.forEach((n=>{t.classList.add(n);}));}void 0===t.length?e(t,...n):u(t,(t=>{e(t,...n);}));}function s(t,...n){function e(t,...n){n.forEach((n=>{t.classList.remove(n);}));}void 0===t.length?e(t,...n):u(t,(t=>{e(t,...n);}));}function d(t,...n){let e=!1;return n.forEach((n=>{e=t.classList.contains(n);})),e}
 
 document.body.innerHTML = `
 	<div id="get-el-1" class="outer">
@@ -23,7 +23,7 @@ describe( 'Classes', () => {
 			let el = t( 'get-el-1' );
 
 			expect( el ).not.toBe( null );
-			r( el, 'test-byId' );
+			f( el, 'test-byId' );
 
 			expect( el.getAttribute( 'class' ) ).toEqual( expect.stringContaining( 'test-byId' ) );
 		});
@@ -33,7 +33,7 @@ describe( 'Classes', () => {
 			let el = t( 'get-el-1' );
 
 			expect( el ).not.toBe( null );
-			expect( l( el, 'test-byId' ) ).toEqual( true );
+			expect( d( el, 'test-byId' ) ).toEqual( true );
 
 		});
 
@@ -43,7 +43,7 @@ describe( 'Classes', () => {
 			let el = t( 'get-el-1' );
 
 			expect( el ).not.toBe( null );
-			c( el, 'test-byId' );
+			s( el, 'test-byId' );
 
 			expect( el.getAttribute( 'class' ) ).toEqual( expect.not.stringContaining( 'test-byId' ) );
 		});
@@ -54,7 +54,7 @@ describe( 'Classes', () => {
 			let el = t( 'get-el-1' );
 
 			expect( el ).not.toBe( null );
-			r( el, 'test-byId', 'test-byId-2' );
+			f( el, 'test-byId', 'test-byId-2' );
 
 			expect( el.getAttribute( 'class' ) ).toEqual( expect.stringContaining( 'test-byId-2' ) );
 			expect( el.getAttribute( 'class' ) ).toEqual( expect.stringContaining( 'test-byId' ) );
@@ -65,7 +65,7 @@ describe( 'Classes', () => {
 			let el = t( 'get-el-1' );
 
 			expect( el ).not.toBe( null );
-			expect( l( el, 'test-byId', 'test-byId-2' ) ).toEqual( true );
+			expect( d( el, 'test-byId', 'test-byId-2' ) ).toEqual( true );
 
 		});
 
@@ -75,7 +75,7 @@ describe( 'Classes', () => {
 			let el = t( 'get-el-1' );
 
 			expect( el ).not.toBe( null );
-			c( el, 'test-byId', 'test-byId-2' );
+			s( el, 'test-byId', 'test-byId-2' );
 
 			expect( el.getAttribute( 'class' ) ).toEqual( expect.not.stringContaining( 'test-byId-2' ) );
 			expect( el.getAttribute( 'class' ) ).toEqual( expect.not.stringContaining( 'test-byId' ) );
@@ -92,7 +92,7 @@ describe( 'Classes', () => {
 			let el = e( '#get-el-1' );
 
 			expect( el ).not.toBe( null );
-			r( el, 'test-query' );
+			f( el, 'test-query' );
 
 			expect( el.getAttribute( 'class' ) ).toEqual( expect.stringContaining( 'test-query' ) );
 		});
@@ -102,7 +102,7 @@ describe( 'Classes', () => {
 			let el = e( '#get-el-1' );
 
 			expect( el ).not.toBe( null );
-			expect( l( el, 'test-query' ) ).toEqual( true );
+			expect( d( el, 'test-query' ) ).toEqual( true );
 
 		});
 
@@ -112,7 +112,7 @@ describe( 'Classes', () => {
 			let el = e( '#get-el-1' );
 
 			expect( el ).not.toBe( null );
-			c( el, 'test-query' );
+			s( el, 'test-query' );
 
 			expect( el.getAttribute( 'class' ) ).toEqual( expect.not.stringContaining( 'test-query' ) );
 		});
@@ -123,7 +123,7 @@ describe( 'Classes', () => {
 			let el = e( '#get-el-1' );
 
 			expect( el ).not.toBe( null );
-			r( el, 'test-query', 'test-query-2' );
+			f( el, 'test-query', 'test-query-2' );
 
 			expect( el.getAttribute( 'class' ) ).toEqual( expect.stringContaining( 'test-query-2' ) );
 			expect( el.getAttribute( 'class' ) ).toEqual( expect.stringContaining( 'test-query' ) );
@@ -134,7 +134,7 @@ describe( 'Classes', () => {
 			let el = e( '#get-el-1' );
 
 			expect( el ).not.toBe( null );
-			expect( l( el, 'test-query', 'test-query-2' ) ).toEqual( true );
+			expect( d( el, 'test-query', 'test-query-2' ) ).toEqual( true );
 
 		});
 
@@ -144,7 +144,7 @@ describe( 'Classes', () => {
 			let el = e( '#get-el-1' );
 
 			expect( el ).not.toBe( null );
-			c( el, 'test-query', 'test-query-2' );
+			s( el, 'test-query', 'test-query-2' );
 
 			expect( el.getAttribute( 'class' ) ).toEqual( expect.not.stringContaining( 'test-query-2' ) );
 			expect( el.getAttribute( 'class' ) ).toEqual( expect.not.stringContaining( 'test-query' ) );
@@ -161,7 +161,7 @@ describe( 'Classes', () => {
 			let el = n( 'outer' );
 
 			expect( el.length ).not.toBe( 0 );
-			r( el[0], 'test-byClass' );
+			f( el[0], 'test-byClass' );
 
 			expect( el[0].getAttribute( 'class' ) ).toEqual( expect.stringContaining( 'test-byClass' ) );
 		});
@@ -171,7 +171,7 @@ describe( 'Classes', () => {
 			let el = n( 'outer' );
 
 			expect( el.length ).not.toBe( 0 );
-			expect( l( el[0], 'test-byClass' ) ).toEqual( true );
+			expect( d( el[0], 'test-byClass' ) ).toEqual( true );
 
 		});
 
@@ -181,7 +181,7 @@ describe( 'Classes', () => {
 			let el = n( 'outer' );
 
 			expect( el.length ).not.toBe( 0 );
-			c( el[0], 'test-byClass' );
+			s( el[0], 'test-byClass' );
 
 			expect( el[0].getAttribute( 'class' ) ).toEqual( expect.not.stringContaining( 'test-byClass' ) );
 		});
@@ -192,7 +192,7 @@ describe( 'Classes', () => {
 			let el = n( 'outer' );
 
 			expect( el.length ).not.toBe( 0 );
-			r( el, 'test-byClass' );
+			f( el, 'test-byClass' );
 
 			expect( el[0].getAttribute( 'class' ) ).toEqual( expect.stringContaining( 'test-byClass' ) );
 			expect( el[1].getAttribute( 'class' ) ).toEqual( expect.stringContaining( 'test-byClass' ) );
@@ -205,7 +205,7 @@ describe( 'Classes', () => {
 			let el = n( 'outer' );
 
 			expect( el.length ).not.toBe( 0 );
-			c( el, 'test-byClass' );
+			s( el, 'test-byClass' );
 
 			expect( el[0].getAttribute( 'class' ) ).toEqual( expect.not.stringContaining( 'test-byClass' ) );
 			expect( el[1].getAttribute( 'class' ) ).toEqual( expect.not.stringContaining( 'test-byClass' ) );
@@ -218,7 +218,7 @@ describe( 'Classes', () => {
 			let el = n( 'outer' );
 
 			expect( el.length ).not.toBe( 0 );
-			r( el[0], 'test-byClass', 'test-byClass-2' );
+			f( el[0], 'test-byClass', 'test-byClass-2' );
 
 			expect( el[0].getAttribute( 'class' ) ).toEqual( expect.stringContaining( 'test-byClass-2' ) );
 			expect( el[0].getAttribute( 'class' ) ).toEqual( expect.stringContaining( 'test-byClass' ) );
@@ -229,7 +229,7 @@ describe( 'Classes', () => {
 			let el = n( 'outer' );
 
 			expect( el.length ).not.toBe( 0 );
-			expect( l( el[0], 'test-byClass', 'test-byClass-2' ) ).toEqual( true );
+			expect( d( el[0], 'test-byClass', 'test-byClass-2' ) ).toEqual( true );
 
 		});
 
@@ -239,7 +239,7 @@ describe( 'Classes', () => {
 			let el = n( 'outer' );
 
 			expect( el.length ).not.toBe( 0 );
-			c( el[0], 'test-byClass', 'test-byClass-2' );
+			s( el[0], 'test-byClass', 'test-byClass-2' );
 
 			expect( el[0].getAttribute( 'class' ) ).toEqual( expect.not.stringContaining( 'test-byClass-2' ) );
 			expect( el[0].getAttribute( 'class' ) ).toEqual( expect.not.stringContaining( 'test-byClass' ) );
@@ -251,7 +251,7 @@ describe( 'Classes', () => {
 			let el = n( 'outer' );
 
 			expect( el.length ).not.toBe( 0 );
-			r( el, 'test-byClass', 'test-byClass-2' );
+			f( el, 'test-byClass', 'test-byClass-2' );
 
 			expect( el[0].getAttribute( 'class' ) ).toEqual( expect.stringContaining( 'test-byClass-2' ) );
 			expect( el[1].getAttribute( 'class' ) ).toEqual( expect.stringContaining( 'test-byClass-2' ) );
@@ -267,7 +267,7 @@ describe( 'Classes', () => {
 			let el = n( 'outer' );
 
 			expect( el.length ).not.toBe( 0 );
-			c( el, 'test-byClass', 'test-byClass-2' );
+			s( el, 'test-byClass', 'test-byClass-2' );
 
 			expect( el[0].getAttribute( 'class' ) ).toEqual( expect.not.stringContaining( 'test-byClass-2' ) );
 			expect( el[1].getAttribute( 'class' ) ).toEqual( expect.not.stringContaining( 'test-byClass-2' ) );
@@ -288,7 +288,7 @@ describe( 'Classes', () => {
 			let el = o( '.outer' );
 
 			expect( el.length ).not.toBe( 0 );
-			r( el[0], 'test-queryAll' );
+			f( el[0], 'test-queryAll' );
 
 			expect( el[0].getAttribute( 'class' ) ).toEqual( expect.stringContaining( 'test-queryAll' ) );
 		});
@@ -298,7 +298,7 @@ describe( 'Classes', () => {
 			let el = o( '.outer' );
 
 			expect( el.length ).not.toBe( 0 );
-			expect( l( el[0], 'test-queryAll' ) ).toEqual( true );
+			expect( d( el[0], 'test-queryAll' ) ).toEqual( true );
 
 		});
 
@@ -308,7 +308,7 @@ describe( 'Classes', () => {
 			let el = o( '.outer' );
 
 			expect( el.length ).not.toBe( 0 );
-			c( el[0], 'test-queryAll' );
+			s( el[0], 'test-queryAll' );
 
 			expect( el[0].getAttribute( 'class' ) ).toEqual( expect.not.stringContaining( 'test-queryAll' ) );
 		});
@@ -319,7 +319,7 @@ describe( 'Classes', () => {
 			let el = o( '.outer' );
 
 			expect( el.length ).not.toBe( 0 );
-			r( el, 'test-queryAll' );
+			f( el, 'test-queryAll' );
 
 			expect( el[0].getAttribute( 'class' ) ).toEqual( expect.stringContaining( 'test-queryAll' ) );
 			expect( el[1].getAttribute( 'class' ) ).toEqual( expect.stringContaining( 'test-queryAll' ) );
@@ -332,7 +332,7 @@ describe( 'Classes', () => {
 			let el = o( '.outer' );
 
 			expect( el.length ).not.toBe( 0 );
-			c( el, 'test-queryAll' );
+			s( el, 'test-queryAll' );
 
 			expect( el[0].getAttribute( 'class' ) ).toEqual( expect.not.stringContaining( 'test-queryAll' ) );
 			expect( el[1].getAttribute( 'class' ) ).toEqual( expect.not.stringContaining( 'test-queryAll' ) );
@@ -345,7 +345,7 @@ describe( 'Classes', () => {
 			let el = o( '.outer' );
 
 			expect( el.length ).not.toBe( 0 );
-			r( el[0], 'test-queryAll', 'test-queryAll-2' );
+			f( el[0], 'test-queryAll', 'test-queryAll-2' );
 
 			expect( el[0].getAttribute( 'class' ) ).toEqual( expect.stringContaining( 'test-queryAll-2' ) );
 			expect( el[0].getAttribute( 'class' ) ).toEqual( expect.stringContaining( 'test-queryAll' ) );
@@ -356,7 +356,7 @@ describe( 'Classes', () => {
 			let el = o( '.outer' );
 
 			expect( el.length ).not.toBe( 0 );
-			expect( l( el[0], 'test-queryAll', 'test-queryAll-2' ) ).toEqual( true );
+			expect( d( el[0], 'test-queryAll', 'test-queryAll-2' ) ).toEqual( true );
 
 		});
 
@@ -366,7 +366,7 @@ describe( 'Classes', () => {
 			let el = o( '.outer' );
 
 			expect( el.length ).not.toBe( 0 );
-			c( el[0], 'test-queryAll', 'test-queryAll-2' );
+			s( el[0], 'test-queryAll', 'test-queryAll-2' );
 
 			expect( el[0].getAttribute( 'class' ) ).toEqual( expect.not.stringContaining( 'test-queryAll-2' ) );
 			expect( el[0].getAttribute( 'class' ) ).toEqual( expect.not.stringContaining( 'test-queryAll' ) );
@@ -378,7 +378,7 @@ describe( 'Classes', () => {
 			let el = o( '.outer' );
 
 			expect( el.length ).not.toBe( 0 );
-			r( el, 'test-queryAll', 'test-queryAll-2' );
+			f( el, 'test-queryAll', 'test-queryAll-2' );
 
 			expect( el[0].getAttribute( 'class' ) ).toEqual( expect.stringContaining( 'test-queryAll-2' ) );
 			expect( el[1].getAttribute( 'class' ) ).toEqual( expect.stringContaining( 'test-queryAll-2' ) );
@@ -394,7 +394,7 @@ describe( 'Classes', () => {
 			let el = o( '.outer' );
 
 			expect( el.length ).not.toBe( 0 );
-			c( el, 'test-queryAll', 'test-queryAll-2' );
+			s( el, 'test-queryAll', 'test-queryAll-2' );
 
 			expect( el[0].getAttribute( 'class' ) ).toEqual( expect.not.stringContaining( 'test-queryAll-2' ) );
 			expect( el[1].getAttribute( 'class' ) ).toEqual( expect.not.stringContaining( 'test-queryAll-2' ) );

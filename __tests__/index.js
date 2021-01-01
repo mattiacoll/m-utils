@@ -1,4 +1,4 @@
-function t(t){return document.getElementById(t)}function m(t){let n=0;for(;t=t.previousElementSibling;)n++;return n}
+function t(t){return document.getElementById(t)}function l(t){let n=0;for(;t=t.previousElementSibling;)n++;return n}
 
 document.body.innerHTML = `
 	<div id="get-el-1" class="outer">
@@ -23,7 +23,7 @@ describe( 'Indexes', () => {
 		const el = t( 'get-el-3' );
 
 		expect( el ).not.toBe( null );
-		expect( m( el ) ).toEqual( 2 );
+		expect( l( el ) ).toEqual( 2 );
 	});
 
 	test( 'Get child index', () => {
@@ -31,7 +31,7 @@ describe( 'Indexes', () => {
 		const el = t( 'inner-3-3' );
 
 		expect( el ).not.toBe( null );
-		expect( m( el ) ).toEqual( 3 );
+		expect( l( el ) ).toEqual( 3 );
 	});
 
 });
