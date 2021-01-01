@@ -9,7 +9,7 @@
     "declarations": "tsc -p tsconfig.json",
     "build:prod": "rollup -c & npm run declarations",
     "docs": "jsdoc2md src/**/*.js > api.md",
-    "test": "jest --verbose"
+    "test": "jest --verbose -i __tests__"
   },
   "repository": {
     "type": "git",
