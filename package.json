@@ -2,7 +2,8 @@
   "name": "matt-utils",
   "version": "1.3.1",
   "description": "Some simple shothands for some js functions and methods",
-  "main": "dist/matt-utils.js",
+  "main": "./dist/matt-utils.js",
+  "exports": "./dist/matt-utils.js",
   "scripts": {
     "rl": "rollup -cw",
     "declarations": "tsc -p tsconfig.json",

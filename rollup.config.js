@@ -11,14 +11,14 @@ export default [
 		output: [
 			{
 				file:		'dist/matt-utils.js',
-				format: 'umd',
+				format: 'es',
 				indent: false,
 				strict: false,
 				name:		'matt-utils',
 			},
 			{
 				file:		'dist/matt-utils.min.js',
-				format: 'umd',
+				format: 'es',
 				indent: false,
 				strict: false,
 				name:		'matt-utils',

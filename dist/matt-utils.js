@@ -1,8 +1,3 @@
-(function (global, factory) {
-typeof exports === 'object' && typeof module !== 'undefined' ? factory(exports) :
-typeof define === 'function' && define.amd ? define(['exports'], factory) :
-(global = typeof globalThis !== 'undefined' ? globalThis : global || self, factory(global['matt-utils'] = {}));
-}(this, (function (exports) {
 function byId(id) {
   return document.getElementById(id);
 }
@@ -90,25 +85,4 @@ function hasAttr(el, attr) {
   return el.hasAttribute(attr);
 }
 
-exports.addClass = addClass;
-exports.addEvent = addEvent;
-exports.byClass = byClass;
-exports.byId = byId;
-exports.forEachHTML = forEachHTML;
-exports.getAttr = getAttr;
-exports.getElementIndex = getElementIndex;
-exports.getLeftPos = getLeftPos;
-exports.getTopPos = getTopPos;
-exports.hasAttr = hasAttr;
-exports.hasClass = hasClass;
-exports.nextFrame = nextFrame;
-exports.query = query;
-exports.queryAll = queryAll;
-exports.remAttr = remAttr;
-exports.removeClass = removeClass;
-exports.removeEvent = removeEvent;
-exports.setAttr = setAttr;
-
-Object.defineProperty(exports, '__esModule', { value: true });
-
-})));
+export { addClass, addEvent, byClass, byId, forEachHTML, getAttr, getElementIndex, getLeftPos, getTopPos, hasAttr, hasClass, nextFrame, query, queryAll, remAttr, removeClass, removeEvent, setAttr };
