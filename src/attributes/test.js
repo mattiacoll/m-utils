@@ -28,6 +28,8 @@ describe( 'Attributes', () => {
 		<div id="inner-1" class="inner"></div>
 	</div>` );
 
+			remAttr( getEl, 'new-attr' );
+
 		});
 
 		test( 'Check getAttr', () => {
@@ -36,8 +38,12 @@ describe( 'Attributes', () => {
 
 			expect( getEl ).not.toBe( null );
 
+			setAttr( getEl, 'new-attr', '2' );
+
 			const newAttr = getAttr( getEl, 'new-attr' );
 			expect( newAttr ).toBe( '2' );
+
+			remAttr( getEl, 'new-attr' );
 
 		});
 
@@ -46,8 +52,13 @@ describe( 'Attributes', () => {
 			const getEl = byId( 'get-el-1' );
 
 			expect( getEl ).not.toBe( null );
+
+			setAttr( getEl, 'new-attr', '2' );
+
 			expect( hasAttr( getEl, 'new-attr' ) ).toBe( true );
 			expect( hasAttr( getEl, 'otherAttr' ) ).toBe( false );
+
+			remAttr( getEl, 'new-attr' );
 
 		});
 
@@ -57,6 +68,7 @@ describe( 'Attributes', () => {
 
 			expect( getEl ).not.toBe( null );
 
+			setAttr( getEl, 'new-attr', '2' );
 			remAttr( getEl, 'new-attr' );
 
 			expect( getEl.getAttribute( 'new-attr' ) ).toBe( null );
@@ -79,6 +91,8 @@ describe( 'Attributes', () => {
 		<div id="inner-1" class="inner"></div>
 	</div>` );
 
+			remAttr( getEl, 'new-attr' );
+
 		});
 
 		test( 'Check getAttr', () => {
@@ -87,8 +101,12 @@ describe( 'Attributes', () => {
 
 			expect( getEl ).not.toBe( null );
 
+			setAttr( getEl, 'new-attr', '2' );
+
 			const newAttr = getAttr( getEl, 'new-attr' );
 			expect( newAttr ).toBe( '2' );
+
+			remAttr( getEl, 'new-attr' );
 
 		});
 
@@ -96,9 +114,13 @@ describe( 'Attributes', () => {
 
 			const getEl = query( '#get-el-1' );
 
+			setAttr( getEl, 'new-attr', '2' );
+
 			expect( getEl ).not.toBe( null );
 			expect( hasAttr( getEl, 'new-attr' ) ).toBe( true );
 			expect( hasAttr( getEl, 'otherAttr' ) ).toBe( false );
+
+			remAttr( getEl, 'new-attr' );
 
 		});
 
@@ -108,6 +130,7 @@ describe( 'Attributes', () => {
 
 			expect( getEl ).not.toBe( null );
 
+			setAttr( getEl, 'new-attr', '2' );
 			remAttr( getEl, 'new-attr' );
 
 			expect( getEl.getAttribute( 'new-attr' ) ).toBe( null );

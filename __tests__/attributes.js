@@ -1,4 +1,4 @@
-function t(t){return document.getElementById(t)}function e(t,n=document){return n.querySelector(t)}function g(t,n){return t.getAttribute(n)}function h(t,n,e){t.setAttribute(n,e);}function v(t,n){t.removeAttribute(n);}function E(t,n){return t.hasAttribute(n)}
+function t(t){return document.getElementById(t)}function e(t,n=document){return n.querySelector(t)}function m(t,n){return t.getAttribute(n)}function h(t,n,e){t.setAttribute(n,e);}function v(t,n){t.removeAttribute(n);}function E(t,n){return t.hasAttribute(n)}
 
 document.body.innerHTML = `
 	<div id="get-el-1" class="outer">
@@ -28,6 +28,8 @@ describe( 'Attributes', () => {
 		<div id="inner-1" class="inner"></div>
 	</div>` );
 
+			v( getEl, 'new-attr' );
+
 		});
 
 		test( 'Check getAttr', () => {
@@ -36,8 +38,12 @@ describe( 'Attributes', () => {
 
 			expect( getEl ).not.toBe( null );
 
-			const newAttr = g( getEl, 'new-attr' );
+			h( getEl, 'new-attr', '2' );
+
+			const newAttr = m( getEl, 'new-attr' );
 			expect( newAttr ).toBe( '2' );
+
+			v( getEl, 'new-attr' );
 
 		});
 
@@ -46,8 +52,13 @@ describe( 'Attributes', () => {
 			const getEl = t( 'get-el-1' );
 
 			expect( getEl ).not.toBe( null );
+
+			h( getEl, 'new-attr', '2' );
+
 			expect( E( getEl, 'new-attr' ) ).toBe( true );
 			expect( E( getEl, 'otherAttr' ) ).toBe( false );
+
+			v( getEl, 'new-attr' );
 
 		});
 
@@ -57,6 +68,7 @@ describe( 'Attributes', () => {
 
 			expect( getEl ).not.toBe( null );
 
+			h( getEl, 'new-attr', '2' );
 			v( getEl, 'new-attr' );
 
 			expect( getEl.getAttribute( 'new-attr' ) ).toBe( null );
@@ -79,6 +91,8 @@ describe( 'Attributes', () => {
 		<div id="inner-1" class="inner"></div>
 	</div>` );
 
+			v( getEl, 'new-attr' );
+
 		});
 
 		test( 'Check getAttr', () => {
@@ -87,8 +101,12 @@ describe( 'Attributes', () => {
 
 			expect( getEl ).not.toBe( null );
 
-			const newAttr = g( getEl, 'new-attr' );
+			h( getEl, 'new-attr', '2' );
+
+			const newAttr = m( getEl, 'new-attr' );
 			expect( newAttr ).toBe( '2' );
+
+			v( getEl, 'new-attr' );
 
 		});
 
@@ -96,9 +114,13 @@ describe( 'Attributes', () => {
 
 			const getEl = e( '#get-el-1' );
 
+			h( getEl, 'new-attr', '2' );
+
 			expect( getEl ).not.toBe( null );
 			expect( E( getEl, 'new-attr' ) ).toBe( true );
 			expect( E( getEl, 'otherAttr' ) ).toBe( false );
+
+			v( getEl, 'new-attr' );
 
 		});
 
@@ -108,6 +130,7 @@ describe( 'Attributes', () => {
 
 			expect( getEl ).not.toBe( null );
 
+			h( getEl, 'new-attr', '2' );
 			v( getEl, 'new-attr' );
 
 			expect( getEl.getAttribute( 'new-attr' ) ).toBe( null );
