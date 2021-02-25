@@ -1,4 +1,4 @@
-declare module "matt-utils" {
+declare module "selectors/selectors" {
     /**
      * Shorthand for `document.getElementById`
      *
@@ -34,6 +34,8 @@ declare module "matt-utils" {
      * @returns {NodeList} - The selected element
      */
     export function queryAll(selector: string, parent?: Element | undefined): NodeList;
+}
+declare module "misc/misc" {
     /**
      * Foreach polyfill for NodeList and HTMLCollection
      * https://toddmotto.com/ditch-the-array-foreach-call-nodelist-hack/
@@ -42,7 +44,7 @@ declare module "matt-utils" {
      * @param {foreachCB} fn - Callback containing ( value, index ) as arguments
      * @param {Scope} [scope] - Scope
      */
-    export function forEachHTML(els: Array | NodeList | HTMLCollection, fn: foreachCB, scope?: any): void;
+    export function forEachHTML(els: any[] | NodeList | HTMLCollection, fn: foreachCB, scope?: any): void;
     /**
      * Foreach callback
      *
@@ -57,48 +59,6 @@ declare module "matt-utils" {
      * @param {Function} fn - Callback
      */
     export function nextFrame(fn: Function): void;
-    /**
-     * Shorthand for `element.classList.add`, works with multiple nodes
-     *
-     * @param {Element|HTMLCollection|NodeList} el - A list of elements
-     * @param {...String} classes - Classes to add
-     */
-    export function addClass(el: Element | HTMLCollection | NodeList, ...classes: string[]): void;
-    /**
-     * Shorthand for `element.classList.remove`, works with multiple nodes
-     *
-     * @param {Element|HTMLCollection|NodeList} el - A list of elements
-     * @param {...String} classes - Classes to remove
-     */
-    export function removeClass(el: Element | HTMLCollection | NodeList, ...classes: string[]): void;
-    /**
-     * Checks if an element has a class or not
-     * // TODO: check for multiple classes of multiple elements
-     *
-     * @param {Element} el - An HTML element
-     * @param {...String} classes - Classes to check the presence of
-     *
-     * @returns {Boolean} - The element has the class
-     */
-    export function hasClass(el: Element, ...classes: string[]): boolean;
-    /**
-     * Shorthand for `element.addEventListener`
-     *
-     * @param {Element|HTMLCollection|NodeList} el - A list of elements
-     * @param {String} ev - Event's name
-     * @param {Function} fn - Event's function
-     * @param {Options} [opts] - Optional event options
-     */
-    export function addEvent(el: Element | HTMLCollection | NodeList, ev: string, fn: Function, opts?: any): void;
-    /**
-     * Shorthand for `element.removeEventListener`
-     *
-     * @param {Element|HTMLCollection|NodeList} el - A list of elements
-     * @param {String} ev - Event's name
-     * @param {Function} fn - Event's function
-     * @param {Options} [opts] - Optional event options
-     */
-    export function removeEvent(el: Element | HTMLCollection | NodeList, ev: string, fn: Function, opts?: any): void;
     /**
      * Gets an element top position
      *
@@ -126,6 +86,59 @@ declare module "matt-utils" {
      * @returns {Number} - The element's index
      */
     export function getElementIndex(el: Element): number;
+    /**
+     * Foreach callback
+     */
+    export type foreachCB = (value: Element, index?: number | undefined) => any;
+}
+declare module "classes/classes" {
+    /**
+     * Shorthand for `element.classList.add`, works with multiple nodes
+     *
+     * @param {Element|HTMLCollection|NodeList} el - A list of elements
+     * @param {...String} classes - Classes to add
+     */
+    export function addClass(el: Element | HTMLCollection | NodeList, ...classes: string[]): void;
+    /**
+     * Shorthand for `element.classList.remove`, works with multiple nodes
+     *
+     * @param {Element|HTMLCollection|NodeList} el - A list of elements
+     * @param {...String} classes - Classes to remove
+     */
+    export function removeClass(el: Element | HTMLCollection | NodeList, ...classes: string[]): void;
+    /**
+     * Checks if an element has a class or not.
+     * If multiple elements are passed the result is true only if all
+     * the elements have all the specified classes.
+     *
+     * @param {Element|HTMLCollection|NodeList} el - A list of elements
+     * @param {...String} classes - Classes to check the presence of
+     *
+     * @returns {Boolean} - The element has the class
+     */
+    export function hasClass(el: Element | HTMLCollection | NodeList, ...classes: string[]): boolean;
+}
+declare module "events/events" {
+    /**
+     * Shorthand for `element.addEventListener`
+     *
+     * @param {Element|HTMLCollection|NodeList} el - A list of elements
+     * @param {String} ev - Event's name
+     * @param {Function} fn - Event's function
+     * @param {Options} [opts] - Optional event options
+     */
+    export function addEvent(el: Element | HTMLCollection | NodeList, ev: string, fn: Function, opts?: any): void;
+    /**
+     * Shorthand for `element.removeEventListener`
+     *
+     * @param {Element|HTMLCollection|NodeList} el - A list of elements
+     * @param {String} ev - Event's name
+     * @param {Function} fn - Event's function
+     * @param {Options} [opts] - Optional event options
+     */
+    export function removeEvent(el: Element | HTMLCollection | NodeList, ev: string, fn: Function, opts?: any): void;
+}
+declare module "attributes/attributes" {
     /**
      * Shorthand for `element.getAttribute`
      *
@@ -159,8 +172,11 @@ declare module "matt-utils" {
      * @returns {Boolean} - Whether the attribute exists
      */
     export function hasAttr(el: Element, attr: string): boolean;
-    /**
-     * Foreach callback
-     */
-    export type foreachCB = (value: Element, index?: number) => any;
+}
+declare module "matt-utils" {
+    export { byId, byClass, query, queryAll } from "./selectors/selectors";
+    export { addClass, removeClass, hasClass } from "./classes/classes";
+    export { addEvent, removeEvent } from "./events/events";
+    export { getAttr, setAttr, remAttr, hasAttr } from "./attributes/attributes";
+    export { forEachHTML, nextFrame, getTopPos, getLeftPos, getElementIndex } from "./misc/misc";
 }
