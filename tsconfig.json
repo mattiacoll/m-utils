@@ -1,11 +1,11 @@
 {
   "files": [
-    "src/matt-utils.js"
+    "dist/matt-utils.js"
   ],
   "compilerOptions": {
     /* Basic Options */
     "target": "ES2016",
-    "module": "UMD",
+    "module": "ES6",
     "allowJs": true,
     // "resolveJsonModule": true,
     "noEmit": false,

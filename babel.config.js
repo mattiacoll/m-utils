@@ -17,6 +17,6 @@ module.exports = function (api) {
 				}
 			]
 		],
-		comments: false,
+		// comments: false,
 	}
 }
