@@ -216,18 +216,10 @@ function hasClass(el, ...classes) {
  * @param {Element|HTMLCollection|NodeList} el - A list of elements
  * @param {String} ev - Event's name
  * @param {Function} fn - Event's function
- * @param {Options} [opts] - Optional event options
+ * @param {Object} [opts] - Optional event options
  */
 function addEvent(el, ev, fn, opts) {
-  // if ( el.length === undefined || el.self === window )
   el.addEventListener(ev, fn, opts);
-  /*
-  else {
-  	forEachHTML( el, ( currEl ) => {
-  		currEl.addEventListener( ev, fn, opts );
-  	});
-  }
-  */
 }
 /**
  * Shorthand for `element.removeEventListener`
@@ -235,19 +227,11 @@ function addEvent(el, ev, fn, opts) {
  * @param {Element|HTMLCollection|NodeList} el - A list of elements
  * @param {String} ev - Event's name
  * @param {Function} fn - Event's function
- * @param {Options} [opts] - Optional event options
+ * @param {Object} [opts] - Optional event options
  */
 
 function removeEvent(el, ev, fn, opts) {
-  // if ( el.length === undefined || el.self === window )
   el.removeEventListener(ev, fn, opts);
-  /*
-  else {
-  	forEachHTML( el, ( currEl ) => {
-  		currEl.removeEventListener( ev, fn, opts );
-  	});
-  }
-  */
 }
 
 /**

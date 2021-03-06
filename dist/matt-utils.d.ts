@@ -16,9 +16,9 @@ declare module "matt-utils" {
      * @param {Element|HTMLCollection|NodeList} el - A list of elements
      * @param {String} ev - Event's name
      * @param {Function} fn - Event's function
-     * @param {Options} [opts] - Optional event options
+     * @param {Object} [opts] - Optional event options
      */
-    export function addEvent(el: Element | HTMLCollection | NodeList, ev: string, fn: Function, opts?: any): void;
+    export function addEvent(el: Element | HTMLCollection | NodeList, ev: string, fn: Function, opts?: Object | undefined): void;
     /**
      * Shorthand for `document.getElementsByClassName`
      *
@@ -153,9 +153,9 @@ declare module "matt-utils" {
      * @param {Element|HTMLCollection|NodeList} el - A list of elements
      * @param {String} ev - Event's name
      * @param {Function} fn - Event's function
-     * @param {Options} [opts] - Optional event options
+     * @param {Object} [opts] - Optional event options
      */
-    export function removeEvent(el: Element | HTMLCollection | NodeList, ev: string, fn: Function, opts?: any): void;
+    export function removeEvent(el: Element | HTMLCollection | NodeList, ev: string, fn: Function, opts?: Object | undefined): void;
     /**
      * Shorthand for `element.setAttribute`
      *
