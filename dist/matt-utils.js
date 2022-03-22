@@ -3,7 +3,7 @@
  *
  * @param {String} id - The selector's id
  *
- * @returns {Element|null} - The selected element
+ * @returns {HTMLElement|null} - The selected element
  */
 function byId(id) {
   return document.getElementById(id);
@@ -14,7 +14,7 @@ function byId(id) {
  * @param {String} selClass - The selector's class
  * @param {Element} [parent=document] - Parent element
  *
- * @returns {HTMLCollection} - The selected elements
+ * @returns {HTMLCollectionOf<Element>} - The selected elements
  */
 
 function byClass(selClass, parent = document) {
@@ -26,14 +26,14 @@ function byClass(selClass, parent = document) {
  * @param {String} selector - Selector
  * @param {Element} [parent=document] - Parent element
  *
- * @returns {Element|null} - The selected element
+ * @returns {Element|HTMLElementTagNameMap|SVGElementTagNameMap|null} - The selected element
  */
 
 function query(selector, parent = document) {
   return parent.querySelector(selector);
 }
 /**
- * Shorthand per `document.querySelectorAll`
+ * Shorthand for `document.querySelectorAll`
  *
  * @param {String} selector - Selector
  * @param {Element} [parent=document] - Parent element
@@ -60,7 +60,7 @@ function forEachHTML(els, fn, scope) {
  * Foreach callback
  *
  * @callback foreachCB
- * @param {Element} value - The element
+ * @param {Element|HTMLElement} value - The element
  * @param {Number} [index] - The index of the element
  */
 
@@ -81,8 +81,8 @@ function nextFrame(fn) {
 /**
  * Gets an element top position
  *
- * @param {Element} el - An HTML element
- * @param {Element} [topEl=document.body] - Wrapping element
+ * @param {Element|HTMLElement} el - An HTML element
+ * @param {Element|HTMLElement} [topEl=document.body] - Wrapping element
  *
  * @returns {Number} Element's top position
  */
@@ -93,8 +93,8 @@ function getTopPos(el, topEl = document.body) {
 /**
  * Gets an element left position
  *
- * @param {Element} el - An HTML element
- * @param {Element} [topEl=document.body] - Wrapping element
+ * @param {Element|HTMLElement} el - An HTML element
+ * @param {Element|HTMLElement} [topEl=document.body] - Wrapping element
  *
  * @returns {Number} Element's left position
  */
@@ -106,7 +106,7 @@ function getLeftPos(el, topEl = document.body) {
  * Similar to jQuery `$( el ).index()`
  * index start at 0
  *
- * @param {Element} el - An HTML element
+ * @param {Element|HTMLElement} el - An HTML element
  *
  * @returns {Number} - The element's index
  */
@@ -213,7 +213,7 @@ function hasClass(el, ...classes) {
 /**
  * Shorthand for `element.addEventListener`
  *
- * @param {Element|HTMLCollection|NodeList} el - A list of elements
+ * @param {Element|HTMLCollection|NodeList|Window} el - A list of elements
  * @param {String} ev - Event's name
  * @param {Function} fn - Event's function
  * @param {Object} [opts] - Optional event options
@@ -224,7 +224,7 @@ function addEvent(el, ev, fn, opts) {
 /**
  * Shorthand for `element.removeEventListener`
  *
- * @param {Element|HTMLCollection|NodeList} el - A list of elements
+ * @param {Element|HTMLCollection|NodeList|Window} el - A list of elements
  * @param {String} ev - Event's name
  * @param {Function} fn - Event's function
  * @param {Object} [opts] - Optional event options

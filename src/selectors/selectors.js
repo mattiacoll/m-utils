@@ -3,7 +3,7 @@
  *
  * @param {String} id - The selector's id
  *
- * @returns {Element|null} - The selected element
+ * @returns {HTMLElement|null} - The selected element
  */
 export function byId( id ) {
 	return document.getElementById( id );
@@ -15,7 +15,7 @@ export function byId( id ) {
  * @param {String} selClass - The selector's class
  * @param {Element} [parent=document] - Parent element
  *
- * @returns {HTMLCollection} - The selected elements
+ * @returns {HTMLCollectionOf<Element>} - The selected elements
  */
 export function byClass( selClass, parent = document ) {
 	return parent.getElementsByClassName( selClass );
@@ -28,7 +28,7 @@ export function byClass( selClass, parent = document ) {
  * @param {String} selector - Selector
  * @param {Element} [parent=document] - Parent element
  *
- * @returns {Element|null} - The selected element
+ * @returns {Element|HTMLElementTagNameMap|SVGElementTagNameMap|null} - The selected element
  */
 export function query( selector, parent = document ) {
 	return parent.querySelector( selector );
@@ -36,7 +36,7 @@ export function query( selector, parent = document ) {
 
 
 /**
- * Shorthand per `document.querySelectorAll`
+ * Shorthand for `document.querySelectorAll`
  *
  * @param {String} selector - Selector
  * @param {Element} [parent=document] - Parent element

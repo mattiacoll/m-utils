@@ -15,7 +15,7 @@ export function forEachHTML( els, fn, scope ) {
  * Foreach callback
  *
  * @callback foreachCB
- * @param {Element} value - The element
+ * @param {Element|HTMLElement} value - The element
  * @param {Number} [index] - The index of the element
  */
 
@@ -38,8 +38,8 @@ export function nextFrame( fn ) {
 /**
  * Gets an element top position
  *
- * @param {Element} el - An HTML element
- * @param {Element} [topEl=document.body] - Wrapping element
+ * @param {Element|HTMLElement} el - An HTML element
+ * @param {Element|HTMLElement} [topEl=document.body] - Wrapping element
  *
  * @returns {Number} Element's top position
  */
@@ -50,8 +50,8 @@ export function getTopPos( el, topEl = document.body ) {
 /**
  * Gets an element left position
  *
- * @param {Element} el - An HTML element
- * @param {Element} [topEl=document.body] - Wrapping element
+ * @param {Element|HTMLElement} el - An HTML element
+ * @param {Element|HTMLElement} [topEl=document.body] - Wrapping element
  *
  * @returns {Number} Element's left position
  */
@@ -64,7 +64,7 @@ export function getLeftPos( el, topEl = document.body ) {
  * Similar to jQuery `$( el ).index()`
  * index start at 0
  *
- * @param {Element} el - An HTML element
+ * @param {Element|HTMLElement} el - An HTML element
  *
  * @returns {Number} - The element's index
  */
