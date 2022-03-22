@@ -48,17 +48,17 @@ from <code>display:none</code> to <code>display:block</code> and transition</p>
 <dd><p>Similar to jQuery <code>$( el ).index()</code>
 index start at 0</p>
 </dd>
-<dt><a href="#byId">byId(id)</a> ⇒ <code>Element</code> | <code>null</code></dt>
+<dt><a href="#byId">byId(id)</a> ⇒ <code>HTMLElement</code> | <code>null</code></dt>
 <dd><p>Shorthand for <code>document.getElementById</code></p>
 </dd>
-<dt><a href="#byClass">byClass(selClass, [parent])</a> ⇒ <code>HTMLCollection</code></dt>
+<dt><a href="#byClass">byClass(selClass, [parent])</a> ⇒ <code>HTMLCollectionOf.&lt;Element&gt;</code></dt>
 <dd><p>Shorthand for <code>document.getElementsByClassName</code></p>
 </dd>
-<dt><a href="#query">query(selector, [parent])</a> ⇒ <code>Element</code> | <code>null</code></dt>
+<dt><a href="#query">query(selector, [parent])</a> ⇒ <code>Element</code> | <code>HTMLElementTagNameMap</code> | <code>SVGElementTagNameMap</code> | <code>null</code></dt>
 <dd><p>Shorthand for <code>document.querySelector</code></p>
 </dd>
 <dt><a href="#queryAll">queryAll(selector, [parent])</a> ⇒ <code>NodeList</code></dt>
-<dd><p>Shorthand per <code>document.querySelectorAll</code></p>
+<dd><p>Shorthand for <code>document.querySelectorAll</code></p>
 </dd>
 </dl>
 
@@ -206,10 +206,10 @@ Shorthand for `element.addEventListener`
 
 | Param | Type | Description |
 | --- | --- | --- |
-| el | <code>Element</code> \| <code>HTMLCollection</code> \| <code>NodeList</code> | A list of elements |
+| el | <code>Element</code> \| <code>HTMLCollection</code> \| <code>NodeList</code> \| <code>Window</code> | A list of elements |
 | ev | <code>String</code> | Event's name |
 | fn | <code>function</code> | Event's function |
-| [opts] | <code>Options</code> | Optional event options |
+| [opts] | <code>Object</code> | Optional event options |
 
 <a name="removeEvent"></a>
 
@@ -220,10 +220,10 @@ Shorthand for `element.removeEventListener`
 
 | Param | Type | Description |
 | --- | --- | --- |
-| el | <code>Element</code> \| <code>HTMLCollection</code> \| <code>NodeList</code> | A list of elements |
+| el | <code>Element</code> \| <code>HTMLCollection</code> \| <code>NodeList</code> \| <code>Window</code> | A list of elements |
 | ev | <code>String</code> | Event's name |
 | fn | <code>function</code> | Event's function |
-| [opts] | <code>Options</code> | Optional event options |
+| [opts] | <code>Object</code> | Optional event options |
 
 <a name="forEachHTML"></a>
 
@@ -261,8 +261,8 @@ Gets an element top position
 
 | Param | Type | Default | Description |
 | --- | --- | --- | --- |
-| el | <code>Element</code> |  | An HTML element |
-| [topEl] | <code>Element</code> | <code>document.body</code> | Wrapping element |
+| el | <code>Element</code> \| <code>HTMLElement</code> |  | An HTML element |
+| [topEl] | <code>Element</code> \| <code>HTMLElement</code> | <code>document.body</code> | Wrapping element |
 
 <a name="getLeftPos"></a>
 
@@ -274,8 +274,8 @@ Gets an element left position
 
 | Param | Type | Default | Description |
 | --- | --- | --- | --- |
-| el | <code>Element</code> |  | An HTML element |
-| [topEl] | <code>Element</code> | <code>document.body</code> | Wrapping element |
+| el | <code>Element</code> \| <code>HTMLElement</code> |  | An HTML element |
+| [topEl] | <code>Element</code> \| <code>HTMLElement</code> | <code>document.body</code> | Wrapping element |
 
 <a name="getElementIndex"></a>
 
@@ -288,15 +288,15 @@ index start at 0
 
 | Param | Type | Description |
 | --- | --- | --- |
-| el | <code>Element</code> | An HTML element |
+| el | <code>Element</code> \| <code>HTMLElement</code> | An HTML element |
 
 <a name="byId"></a>
 
-## byId(id) ⇒ <code>Element</code> \| <code>null</code>
+## byId(id) ⇒ <code>HTMLElement</code> \| <code>null</code>
 Shorthand for `document.getElementById`
 
 **Kind**: global function  
-**Returns**: <code>Element</code> \| <code>null</code> - - The selected element  
+**Returns**: <code>HTMLElement</code> \| <code>null</code> - - The selected element  
 
 | Param | Type | Description |
 | --- | --- | --- |
@@ -304,11 +304,11 @@ Shorthand for `document.getElementById`
 
 <a name="byClass"></a>
 
-## byClass(selClass, [parent]) ⇒ <code>HTMLCollection</code>
+## byClass(selClass, [parent]) ⇒ <code>HTMLCollectionOf.&lt;Element&gt;</code>
 Shorthand for `document.getElementsByClassName`
 
 **Kind**: global function  
-**Returns**: <code>HTMLCollection</code> - - The selected elements  
+**Returns**: <code>HTMLCollectionOf.&lt;Element&gt;</code> - - The selected elements  
 
 | Param | Type | Default | Description |
 | --- | --- | --- | --- |
@@ -317,11 +317,11 @@ Shorthand for `document.getElementsByClassName`
 
 <a name="query"></a>
 
-## query(selector, [parent]) ⇒ <code>Element</code> \| <code>null</code>
+## query(selector, [parent]) ⇒ <code>Element</code> \| <code>HTMLElementTagNameMap</code> \| <code>SVGElementTagNameMap</code> \| <code>null</code>
 Shorthand for `document.querySelector`
 
 **Kind**: global function  
-**Returns**: <code>Element</code> \| <code>null</code> - - The selected element  
+**Returns**: <code>Element</code> \| <code>HTMLElementTagNameMap</code> \| <code>SVGElementTagNameMap</code> \| <code>null</code> - - The selected element  
 
 | Param | Type | Default | Description |
 | --- | --- | --- | --- |
@@ -331,7 +331,7 @@ Shorthand for `document.querySelector`
 <a name="queryAll"></a>
 
 ## queryAll(selector, [parent]) ⇒ <code>NodeList</code>
-Shorthand per `document.querySelectorAll`
+Shorthand for `document.querySelectorAll`
 
 **Kind**: global function  
 **Returns**: <code>NodeList</code> - - The selected element  
@@ -350,6 +350,6 @@ Foreach callback
 
 | Param | Type | Description |
 | --- | --- | --- |
-| value | <code>Element</code> | The element |
+| value | <code>Element</code> \| <code>HTMLElement</code> | The element |
 | [index] | <code>Number</code> | The index of the element |
 
