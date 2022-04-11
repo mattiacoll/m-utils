@@ -39,7 +39,7 @@
     "browserslist": "^4.20.2",
     "core-js": "^3.21.1",
     "eslint": "^8.11.0",
-    "glob": "^7.2.0",
+    "glob": "^8.0.0",
     "jest": "^27.5.1",
     "jsdoc-to-markdown": "^7.1.1",
     "rollup": "^2.70.1",
