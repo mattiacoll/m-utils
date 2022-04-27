@@ -5,6 +5,10 @@
   "main": "./dist/matt-utils.js",
   "exports": "./dist/matt-utils.js",
   "type": "module",
+  "jest": {
+    "verbose": true,
+    "testEnvironment": "jsdom"
+  },
   "scripts": {
     "rl": "rollup -cw",
     "declarations": "tsc -p tsconfig.json",
@@ -47,5 +51,8 @@
     "rollup": "^2.70.2",
     "rollup-plugin-terser": "^7.0.2",
     "typescript": "^4.6.3"
+  },
+  "dependencies": {
+    "jest-environment-jsdom": "^28.0.2"
   }
 }
