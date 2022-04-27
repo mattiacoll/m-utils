@@ -1,5 +1,7 @@
 function t(t){return document.getElementById(t)}function l(t){let n=0;for(;t=t.previousElementSibling;)n++;return n}
 
+// @ts-check
+
 document.body.innerHTML = `
 	<div id="get-el-1" class="outer">
 		<div id="inner-1" class="inner"></div>

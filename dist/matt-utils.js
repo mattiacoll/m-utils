@@ -1,9 +1,11 @@
+// @ts-check
+
 /**
  * Shorthand for `document.getElementById`
  *
  * @param {String} id - The selector's id
  *
- * @returns {HTMLElement|null} - The selected element
+ * @returns {Element|HTMLElement|null} - The selected element
  */
 function byId(id) {
   return document.getElementById(id);
@@ -12,7 +14,7 @@ function byId(id) {
  * Shorthand for `document.getElementsByClassName`
  *
  * @param {String} selClass - The selector's class
- * @param {Element} [parent=document] - Parent element
+ * @param {Element|HTMLElement|Document} [parent=document] - Parent element
  *
  * @returns {HTMLCollectionOf<Element>} - The selected elements
  */
@@ -24,7 +26,7 @@ function byClass(selClass, parent = document) {
  * Shorthand for `document.querySelector`
  *
  * @param {String} selector - Selector
- * @param {Element} [parent=document] - Parent element
+ * @param {Element|HTMLElement|Document} [parent=document] - Parent element
  *
  * @returns {Element|HTMLElementTagNameMap|SVGElementTagNameMap|null} - The selected element
  */
@@ -36,7 +38,7 @@ function query(selector, parent = document) {
  * Shorthand for `document.querySelectorAll`
  *
  * @param {String} selector - Selector
- * @param {Element} [parent=document] - Parent element
+ * @param {Element|HTMLElement|Document} [parent=document] - Parent element
  *
  * @returns {NodeList} - The selected element
  */
@@ -45,13 +47,15 @@ function queryAll(selector, parent = document) {
   return parent.querySelectorAll(selector);
 }
 
+// @ts-check
+
 /**
  * Foreach polyfill for NodeList and HTMLCollection
  * https://toddmotto.com/ditch-the-array-foreach-call-nodelist-hack/
  *
  * @param {Array|NodeList|HTMLCollection} els - A list of elements
  * @param {foreachCB} fn - Callback containing ( value, index ) as arguments
- * @param {Scope} [scope] - Scope
+ * @param {Function} [scope] - Scope
  */
 function forEachHTML(els, fn, scope) {
   for (let i = 0, numEls = els.length; i < numEls; i++) fn.call(scope, els[i], i);
@@ -119,10 +123,11 @@ function getElementIndex(el) {
   return index;
 }
 
+// @ts-check
 /**
  * Shorthand for `element.classList.add`, works with multiple nodes
  *
- * @param {Element|HTMLCollection|NodeList} el - A list of elements
+ * @param {Element|HTMLElement|HTMLCollection|NodeList} el - A list of elements
  * @param {...String} classes - Classes to add
  */
 
@@ -135,7 +140,7 @@ function addClass(el, ...classes) {
   /**
    * Adds classes to a single element
    *
-   * @param {Element} elem - An HTML element
+   * @param {Element|HTMLElement} elem - An HTML element
    * @param {...String} remClass - Classes to add
    */
 
@@ -148,7 +153,7 @@ function addClass(el, ...classes) {
 /**
  * Shorthand for `element.classList.remove`, works with multiple nodes
  *
- * @param {Element|HTMLCollection|NodeList} el - A list of elements
+ * @param {Element|HTMLElement|HTMLCollection|NodeList} el - A list of elements
  * @param {...String} classes - Classes to remove
  */
 
@@ -161,7 +166,7 @@ function removeClass(el, ...classes) {
   /**
    * Removes classes to a single element
    *
-   * @param {Element} elem - An HTML element
+   * @param {Element|HTMLElement} elem - An HTML element
    * @param {...String} remClass - Classes to remove
    */
 
@@ -176,7 +181,7 @@ function removeClass(el, ...classes) {
  * If multiple elements are passed the result is true only if all
  * the elements have all the specified classes.
  *
- * @param {Element|HTMLCollection|NodeList} el - A list of elements
+ * @param {Element|HTMLElement|HTMLCollection|NodeList} el - A list of elements
  * @param {...String} classes - Classes to check the presence of
  *
  * @returns {Boolean} - The element has the class
@@ -195,7 +200,7 @@ function hasClass(el, ...classes) {
   /**
    * Checks if an element has a class or not
    *
-   * @param {Element} elem - An HTML element
+   * @param {Element|HTMLElement} elem - An HTML element
    * @param {...String} hasClasses - Classes to check the presence of
    *
    * @returns {Boolean} - The element has the class
@@ -210,12 +215,14 @@ function hasClass(el, ...classes) {
   }
 }
 
+// @ts-check
+
 /**
  * Shorthand for `element.addEventListener`
  *
- * @param {Element|HTMLCollection|NodeList|Window} el - A list of elements
+ * @param {Element|HTMLElement|Window|Document|MediaQueryList} el - A list of elements
  * @param {String} ev - Event's name
- * @param {Function} fn - Event's function
+ * @param {EventListenerOrEventListenerObject} fn - Event's function
  * @param {Object} [opts] - Optional event options
  */
 function addEvent(el, ev, fn, opts) {
@@ -224,9 +231,9 @@ function addEvent(el, ev, fn, opts) {
 /**
  * Shorthand for `element.removeEventListener`
  *
- * @param {Element|HTMLCollection|NodeList|Window} el - A list of elements
+ * @param {Element|HTMLElement|Window|Document|MediaQueryList} el - A list of elements
  * @param {String} ev - Event's name
- * @param {Function} fn - Event's function
+ * @param {EventListenerOrEventListenerObject} fn - Event's function
  * @param {Object} [opts] - Optional event options
  */
 
@@ -234,10 +241,12 @@ function removeEvent(el, ev, fn, opts) {
   el.removeEventListener(ev, fn, opts);
 }
 
+// @ts-check
+
 /**
  * Shorthand for `element.getAttribute`
  *
- * @param {Element} el - An HTML element
+ * @param {Element|HTMLElement} el - An HTML element
  * @param {String} attr - The attribute to retrieve
  *
  * @returns {String} - The attribute's value
@@ -248,7 +257,7 @@ function getAttr(el, attr) {
 /**
  * Shorthand for `element.setAttribute`
  *
- * @param {Element} el - An HTML element
+ * @param {Element|HTMLElement} el - An HTML element
  * @param {String} attr - The attribute to retrieve
  * @param {String} val - The value to set to the attribute
  */
@@ -259,7 +268,7 @@ function setAttr(el, attr, val) {
 /**
  * Shorthand for `element.removeAttribute`
  *
- * @param {Element} el - An HTML element
+ * @param {Element|HTMLElement} el - An HTML element
  * @param {String} attr - The attribute to remove
  */
 
@@ -269,7 +278,7 @@ function remAttr(el, attr) {
 /**
  * Shorthand for `element.hasAttribute`
  *
- * @param {Element} el - An HTML element
+ * @param {Element|HTMLElement} el - An HTML element
  * @param {String} attr - The attribute to check the existance of
  *
  * @returns {Boolean} - Whether the attribute exists

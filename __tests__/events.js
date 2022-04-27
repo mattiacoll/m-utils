@@ -1,5 +1,7 @@
 function t(t){return document.getElementById(t)}function a(t,n,e,o){t.addEventListener(n,e,o);}function g(t,n,e,o){t.removeEventListener(n,e,o);}
 
+// @ts-check
+
 document.body.innerHTML = `
 	<div id="get-el-1" class="outer">
 		<div id="inner-1" class="inner"></div>

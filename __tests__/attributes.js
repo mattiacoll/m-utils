@@ -1,5 +1,7 @@
 function t(t){return document.getElementById(t)}function e(t,n=document){return n.querySelector(t)}function m(t,n){return t.getAttribute(n)}function h(t,n,e){t.setAttribute(n,e);}function v(t,n){t.removeAttribute(n);}function E(t,n){return t.hasAttribute(n)}
 
+// @ts-check
+
 document.body.innerHTML = `
 	<div id="get-el-1" class="outer">
 		<div id="inner-1" class="inner"></div>

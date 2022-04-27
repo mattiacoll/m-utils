@@ -1,10 +1,12 @@
+// @ts-check
+
 /**
  * Foreach polyfill for NodeList and HTMLCollection
  * https://toddmotto.com/ditch-the-array-foreach-call-nodelist-hack/
  *
  * @param {Array|NodeList|HTMLCollection} els - A list of elements
  * @param {foreachCB} fn - Callback containing ( value, index ) as arguments
- * @param {Scope} [scope] - Scope
+ * @param {Function} [scope] - Scope
  */
 export function forEachHTML( els, fn, scope ) {
 	for ( let i = 0, numEls = els.length; i < numEls; i++ )

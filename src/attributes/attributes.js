@@ -1,7 +1,8 @@
+// @ts-check
 /**
  * Shorthand for `element.getAttribute`
  *
- * @param {Element} el - An HTML element
+ * @param {Element|HTMLElement} el - An HTML element
  * @param {String} attr - The attribute to retrieve
  *
  * @returns {String} - The attribute's value
@@ -13,7 +14,7 @@ export function getAttr( el, attr ) {
 /**
  * Shorthand for `element.setAttribute`
  *
- * @param {Element} el - An HTML element
+ * @param {Element|HTMLElement} el - An HTML element
  * @param {String} attr - The attribute to retrieve
  * @param {String} val - The value to set to the attribute
  */
@@ -24,7 +25,7 @@ export function setAttr( el, attr, val ) {
 /**
  * Shorthand for `element.removeAttribute`
  *
- * @param {Element} el - An HTML element
+ * @param {Element|HTMLElement} el - An HTML element
  * @param {String} attr - The attribute to remove
  */
 export function remAttr( el, attr ) {
@@ -34,7 +35,7 @@ export function remAttr( el, attr ) {
 /**
  * Shorthand for `element.hasAttribute`
  *
- * @param {Element} el - An HTML element
+ * @param {Element|HTMLElement} el - An HTML element
  * @param {String} attr - The attribute to check the existance of
  *
  * @returns {Boolean} - Whether the attribute exists

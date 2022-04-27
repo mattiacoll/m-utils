@@ -1,3 +1,4 @@
+// @ts-check
 import { byId, addEvent, removeEvent } from '../../dist/matt-utils.min';
 
 document.body.innerHTML = `

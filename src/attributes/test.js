@@ -1,3 +1,4 @@
+// @ts-check
 import { byId, query, getAttr, setAttr, remAttr, hasAttr } from '../../dist/matt-utils.min';
 
 document.body.innerHTML = `

@@ -1,5 +1,7 @@
 function t(t){return document.getElementById(t)}function n(t,n=document){return n.getElementsByClassName(t)}function e(t,n=document){return n.querySelector(t)}function o(t,n=document){return n.querySelectorAll(t)}function u(t,n,e){for(let o=0,u=t.length;o<u;o++)n.call(e,t[o],o);}function f(t,...n){function e(t,...n){n.forEach((n=>{t.classList.add(n);}));}void 0===t.length?e(t,...n):u(t,(t=>{e(t,...n);}));}function s(t,...n){function e(t,...n){n.forEach((n=>{t.classList.remove(n);}));}void 0===t.length?e(t,...n):u(t,(t=>{e(t,...n);}));}function d(t,...n){let e=!1;if(void 0===t.length)e=o(t,...n);else {let i=0;u(t,(t=>{o(t,...n)&&i++;})),e=i===t.length;}return e;function o(t,...n){let e=0;return n.forEach((n=>{t.classList.contains(n)&&e++;})),e===n.length}}
 
+// @ts-check
+
 document.body.innerHTML = `
 	<div id="get-el-1" class="outer">
 		<div id="inner-1" class="inner"></div>

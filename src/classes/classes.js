@@ -1,9 +1,10 @@
+// @ts-check
 import { forEachHTML } from '../misc/misc';
 
 /**
  * Shorthand for `element.classList.add`, works with multiple nodes
  *
- * @param {Element|HTMLCollection|NodeList} el - A list of elements
+ * @param {Element|HTMLElement|HTMLCollection|NodeList} el - A list of elements
  * @param {...String} classes - Classes to add
  */
 export function addClass( el, ...classes ) {
@@ -19,7 +20,7 @@ export function addClass( el, ...classes ) {
 	/**
 	 * Adds classes to a single element
 	 *
-	 * @param {Element} elem - An HTML element
+	 * @param {Element|HTMLElement} elem - An HTML element
 	 * @param {...String} remClass - Classes to add
 	 */
 	function addClassEl( elem, ...remClass ) {
@@ -32,7 +33,7 @@ export function addClass( el, ...classes ) {
 /**
  * Shorthand for `element.classList.remove`, works with multiple nodes
  *
- * @param {Element|HTMLCollection|NodeList} el - A list of elements
+ * @param {Element|HTMLElement|HTMLCollection|NodeList} el - A list of elements
  * @param {...String} classes - Classes to remove
  */
 export function removeClass( el, ...classes ) {
@@ -48,7 +49,7 @@ export function removeClass( el, ...classes ) {
 	/**
 	 * Removes classes to a single element
 	 *
-	 * @param {Element} elem - An HTML element
+	 * @param {Element|HTMLElement} elem - An HTML element
 	 * @param {...String} remClass - Classes to remove
 	 */
 	function removeClassEl( elem, ...remClass ) {
@@ -65,7 +66,7 @@ export function removeClass( el, ...classes ) {
  * If multiple elements are passed the result is true only if all
  * the elements have all the specified classes.
  *
- * @param {Element|HTMLCollection|NodeList} el - A list of elements
+ * @param {Element|HTMLElement|HTMLCollection|NodeList} el - A list of elements
  * @param {...String} classes - Classes to check the presence of
  *
  * @returns {Boolean} - The element has the class
@@ -94,7 +95,7 @@ export function hasClass( el, ...classes ) {
 	/**
 	 * Checks if an element has a class or not
 	 *
-	 * @param {Element} elem - An HTML element
+	 * @param {Element|HTMLElement} elem - An HTML element
 	 * @param {...String} hasClasses - Classes to check the presence of
 	 *
 	 * @returns {Boolean} - The element has the class

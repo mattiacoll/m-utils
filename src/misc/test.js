@@ -1,3 +1,4 @@
+// @ts-check
 import { byId, getElementIndex } from '../../dist/matt-utils.min';
 
 document.body.innerHTML = `

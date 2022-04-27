@@ -1,9 +1,11 @@
+// @ts-check
+
 /**
  * Shorthand for `element.addEventListener`
  *
- * @param {Element|HTMLCollection|NodeList|Window} el - A list of elements
+ * @param {Element|HTMLElement|Window|Document|MediaQueryList} el - A list of elements
  * @param {String} ev - Event's name
- * @param {Function} fn - Event's function
+ * @param {EventListenerOrEventListenerObject} fn - Event's function
  * @param {Object} [opts] - Optional event options
  */
 export function addEvent( el, ev, fn, opts ) {
@@ -15,9 +17,9 @@ export function addEvent( el, ev, fn, opts ) {
 /**
  * Shorthand for `element.removeEventListener`
  *
- * @param {Element|HTMLCollection|NodeList|Window} el - A list of elements
+ * @param {Element|HTMLElement|Window|Document|MediaQueryList} el - A list of elements
  * @param {String} ev - Event's name
- * @param {Function} fn - Event's function
+ * @param {EventListenerOrEventListenerObject} fn - Event's function
  * @param {Object} [opts] - Optional event options
  */
 export function removeEvent( el, ev, fn, opts ) {
