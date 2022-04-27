@@ -1,6 +1,6 @@
 {
   "name": "matt-utils",
-  "version": "1.4.4",
+  "version": "1.4.5",
   "description": "Some simple shothands for some js functions and methods",
   "main": "./dist/matt-utils.js",
   "exports": "./dist/matt-utils.js",
