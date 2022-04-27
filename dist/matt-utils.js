@@ -53,7 +53,7 @@ function queryAll(selector, parent = document) {
  * Foreach polyfill for NodeList and HTMLCollection
  * https://toddmotto.com/ditch-the-array-foreach-call-nodelist-hack/
  *
- * @param {Array|NodeList|HTMLCollection} els - A list of elements
+ * @param {Array<any>|NodeList|HTMLCollection} els - A list of elements
  * @param {foreachCB} fn - Callback containing ( value, index ) as arguments
  * @param {Function} [scope] - Scope
  */
@@ -78,6 +78,7 @@ function forEachHTML(els, fn, scope) {
 function nextFrame(fn) {
   requestAnimationFrame(() => {
     requestAnimationFrame(() => {
+      // @ts-ignore
       fn.call();
     });
   });
@@ -116,7 +117,7 @@ function getLeftPos(el, topEl = document.body) {
  */
 
 function getElementIndex(el) {
-  let index = 0;
+  let index = 0; // @ts-ignore
 
   while (el = el.previousElementSibling) index++;
 
@@ -132,7 +133,12 @@ function getElementIndex(el) {
  */
 
 function addClass(el, ...classes) {
-  if (el.length === undefined) addClassEl(el, ...classes);else {
+  // @ts-ignore
+  if (el.length === undefined) {
+    // @ts-ignore
+    addClassEl(el, ...classes);
+  } else {
+    // @ts-ignore
     forEachHTML(el, currEl => {
       addClassEl(currEl, ...classes);
     });
@@ -143,6 +149,7 @@ function addClass(el, ...classes) {
    * @param {Element|HTMLElement} elem - An HTML element
    * @param {...String} remClass - Classes to add
    */
+
 
   function addClassEl(elem, ...remClass) {
     remClass.forEach(singleClass => {
@@ -158,7 +165,12 @@ function addClass(el, ...classes) {
  */
 
 function removeClass(el, ...classes) {
-  if (el.length === undefined) removeClassEl(el, ...classes);else {
+  // @ts-ignore
+  if (el.length === undefined) {
+    // @ts-ignore
+    removeClassEl(el, ...classes);
+  } else {
+    // @ts-ignore
     forEachHTML(el, currEl => {
       removeClassEl(currEl, ...classes);
     });
@@ -169,6 +181,7 @@ function removeClass(el, ...classes) {
    * @param {Element|HTMLElement} elem - An HTML element
    * @param {...String} remClass - Classes to remove
    */
+
 
   function removeClassEl(elem, ...remClass) {
     remClass.forEach(singleClass => {
@@ -188,14 +201,21 @@ function removeClass(el, ...classes) {
  */
 
 function hasClass(el, ...classes) {
-  let hasCls = false;
-  if (el.length === undefined) hasCls = hasClassEl(el, ...classes);else {
-    let numClasses = 0;
+  let hasCls = false; // @ts-ignore
+
+  if (el.length === undefined) {
+    // @ts-ignore
+    hasCls = hasClassEl(el, ...classes);
+  } else {
+    let numClasses = 0; // @ts-ignore
+
     forEachHTML(el, currEl => {
       if (hasClassEl(currEl, ...classes)) numClasses++;
-    });
+    }); // @ts-ignore
+
     hasCls = numClasses === el.length;
   }
+
   return hasCls;
   /**
    * Checks if an element has a class or not
@@ -249,7 +269,7 @@ function removeEvent(el, ev, fn, opts) {
  * @param {Element|HTMLElement} el - An HTML element
  * @param {String} attr - The attribute to retrieve
  *
- * @returns {String} - The attribute's value
+ * @returns {String|null} - The attribute's value
  */
 function getAttr(el, attr) {
   return el.getAttribute(attr);

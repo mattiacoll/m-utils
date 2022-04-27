@@ -9,9 +9,12 @@ import { forEachHTML } from '../misc/misc';
  */
 export function addClass( el, ...classes ) {
 
-	if ( el.length === undefined )
+	// @ts-ignore
+	if ( el.length === undefined ) {
+		// @ts-ignore
 		addClassEl( el, ...classes );
-	else {
+	} else {
+		// @ts-ignore
 		forEachHTML( el, ( currEl ) => {
 			addClassEl( currEl, ...classes );
 		});
@@ -38,9 +41,12 @@ export function addClass( el, ...classes ) {
  */
 export function removeClass( el, ...classes ) {
 
-	if ( el.length === undefined )
+	// @ts-ignore
+	if ( el.length === undefined ) {
+		// @ts-ignore
 		removeClassEl( el, ...classes );
-	else {
+	} else {
+		// @ts-ignore
 		forEachHTML( el, ( currEl ) => {
 			removeClassEl( currEl, ...classes );
 		});
@@ -75,17 +81,21 @@ export function hasClass( el, ...classes ) {
 
 	let hasCls = false;
 
-	if ( el.length === undefined )
+	// @ts-ignore
+	if ( el.length === undefined ) {
+		// @ts-ignore
 		hasCls = hasClassEl( el, ...classes );
-	else {
+	} else {
 
 		let numClasses = 0;
 
+		// @ts-ignore
 		forEachHTML( el, ( currEl ) => {
 			if ( hasClassEl( currEl, ...classes ) )
 				numClasses++;
 		});
 
+		// @ts-ignore
 		hasCls = numClasses === el.length;
 
 	}

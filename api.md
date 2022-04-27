@@ -1,7 +1,7 @@
 ## Functions
 
 <dl>
-<dt><a href="#getAttr">getAttr(el, attr)</a> ⇒ <code>String</code></dt>
+<dt><a href="#getAttr">getAttr(el, attr)</a> ⇒ <code>String</code> | <code>null</code></dt>
 <dd><p>Shorthand for <code>element.getAttribute</code></p>
 </dd>
 <dt><a href="#setAttr">setAttr(el, attr, val)</a></dt>
@@ -72,11 +72,11 @@ index start at 0</p>
 
 <a name="getAttr"></a>
 
-## getAttr(el, attr) ⇒ <code>String</code>
+## getAttr(el, attr) ⇒ <code>String</code> \| <code>null</code>
 Shorthand for `element.getAttribute`
 
 **Kind**: global function  
-**Returns**: <code>String</code> - - The attribute's value  
+**Returns**: <code>String</code> \| <code>null</code> - - The attribute's value  
 
 | Param | Type | Description |
 | --- | --- | --- |
@@ -235,7 +235,7 @@ https://toddmotto.com/ditch-the-array-foreach-call-nodelist-hack/
 
 | Param | Type | Description |
 | --- | --- | --- |
-| els | <code>Array</code> \| <code>NodeList</code> \| <code>HTMLCollection</code> | A list of elements |
+| els | <code>Array.&lt;any&gt;</code> \| <code>NodeList</code> \| <code>HTMLCollection</code> | A list of elements |
 | fn | [<code>foreachCB</code>](#foreachCB) | Callback containing ( value, index ) as arguments |
 | [scope] | <code>function</code> | Scope |
 

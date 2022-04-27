@@ -5,7 +5,7 @@
  * @param {Element|HTMLElement} el - An HTML element
  * @param {String} attr - The attribute to retrieve
  *
- * @returns {String} - The attribute's value
+ * @returns {String|null} - The attribute's value
  */
 export function getAttr( el, attr ) {
 	return el.getAttribute( attr );

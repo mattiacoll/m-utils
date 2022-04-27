@@ -40,20 +40,20 @@ declare module "matt-utils" {
      * Foreach polyfill for NodeList and HTMLCollection
      * https://toddmotto.com/ditch-the-array-foreach-call-nodelist-hack/
      *
-     * @param {Array|NodeList|HTMLCollection} els - A list of elements
+     * @param {Array<any>|NodeList|HTMLCollection} els - A list of elements
      * @param {foreachCB} fn - Callback containing ( value, index ) as arguments
      * @param {Function} [scope] - Scope
      */
-    export function forEachHTML(els: any[] | NodeList | HTMLCollection, fn: foreachCB, scope?: Function | undefined): void;
+    export function forEachHTML(els: Array<any> | NodeList | HTMLCollection, fn: foreachCB, scope?: Function | undefined): void;
     /**
      * Shorthand for `element.getAttribute`
      *
      * @param {Element|HTMLElement} el - An HTML element
      * @param {String} attr - The attribute to retrieve
      *
-     * @returns {String} - The attribute's value
+     * @returns {String|null} - The attribute's value
      */
-    export function getAttr(el: Element | HTMLElement, attr: string): string;
+    export function getAttr(el: Element | HTMLElement, attr: string): string | null;
     /**
      * Similar to jQuery `$( el ).index()`
      * index start at 0
