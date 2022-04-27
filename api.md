@@ -48,7 +48,7 @@ from <code>display:none</code> to <code>display:block</code> and transition</p>
 <dd><p>Similar to jQuery <code>$( el ).index()</code>
 index start at 0</p>
 </dd>
-<dt><a href="#byId">byId(id)</a> ⇒ <code>HTMLElement</code> | <code>null</code></dt>
+<dt><a href="#byId">byId(id)</a> ⇒ <code>Element</code> | <code>HTMLElement</code> | <code>null</code></dt>
 <dd><p>Shorthand for <code>document.getElementById</code></p>
 </dd>
 <dt><a href="#byClass">byClass(selClass, [parent])</a> ⇒ <code>HTMLCollectionOf.&lt;Element&gt;</code></dt>
@@ -80,7 +80,7 @@ Shorthand for `element.getAttribute`
 
 | Param | Type | Description |
 | --- | --- | --- |
-| el | <code>Element</code> | An HTML element |
+| el | <code>Element</code> \| <code>HTMLElement</code> | An HTML element |
 | attr | <code>String</code> | The attribute to retrieve |
 
 <a name="setAttr"></a>
@@ -92,7 +92,7 @@ Shorthand for `element.setAttribute`
 
 | Param | Type | Description |
 | --- | --- | --- |
-| el | <code>Element</code> | An HTML element |
+| el | <code>Element</code> \| <code>HTMLElement</code> | An HTML element |
 | attr | <code>String</code> | The attribute to retrieve |
 | val | <code>String</code> | The value to set to the attribute |
 
@@ -105,7 +105,7 @@ Shorthand for `element.removeAttribute`
 
 | Param | Type | Description |
 | --- | --- | --- |
-| el | <code>Element</code> | An HTML element |
+| el | <code>Element</code> \| <code>HTMLElement</code> | An HTML element |
 | attr | <code>String</code> | The attribute to remove |
 
 <a name="hasAttr"></a>
@@ -118,7 +118,7 @@ Shorthand for `element.hasAttribute`
 
 | Param | Type | Description |
 | --- | --- | --- |
-| el | <code>Element</code> | An HTML element |
+| el | <code>Element</code> \| <code>HTMLElement</code> | An HTML element |
 | attr | <code>String</code> | The attribute to check the existance of |
 
 <a name="addClass"></a>
@@ -130,7 +130,7 @@ Shorthand for `element.classList.add`, works with multiple nodes
 
 | Param | Type | Description |
 | --- | --- | --- |
-| el | <code>Element</code> \| <code>HTMLCollection</code> \| <code>NodeList</code> | A list of elements |
+| el | <code>Element</code> \| <code>HTMLElement</code> \| <code>HTMLCollection</code> \| <code>NodeList</code> | A list of elements |
 | ...classes | <code>String</code> | Classes to add |
 
 <a name="addClass..addClassEl"></a>
@@ -142,7 +142,7 @@ Adds classes to a single element
 
 | Param | Type | Description |
 | --- | --- | --- |
-| elem | <code>Element</code> | An HTML element |
+| elem | <code>Element</code> \| <code>HTMLElement</code> | An HTML element |
 | ...remClass | <code>String</code> | Classes to add |
 
 <a name="removeClass"></a>
@@ -154,7 +154,7 @@ Shorthand for `element.classList.remove`, works with multiple nodes
 
 | Param | Type | Description |
 | --- | --- | --- |
-| el | <code>Element</code> \| <code>HTMLCollection</code> \| <code>NodeList</code> | A list of elements |
+| el | <code>Element</code> \| <code>HTMLElement</code> \| <code>HTMLCollection</code> \| <code>NodeList</code> | A list of elements |
 | ...classes | <code>String</code> | Classes to remove |
 
 <a name="removeClass..removeClassEl"></a>
@@ -166,7 +166,7 @@ Removes classes to a single element
 
 | Param | Type | Description |
 | --- | --- | --- |
-| elem | <code>Element</code> | An HTML element |
+| elem | <code>Element</code> \| <code>HTMLElement</code> | An HTML element |
 | ...remClass | <code>String</code> | Classes to remove |
 
 <a name="hasClass"></a>
@@ -181,7 +181,7 @@ the elements have all the specified classes.
 
 | Param | Type | Description |
 | --- | --- | --- |
-| el | <code>Element</code> \| <code>HTMLCollection</code> \| <code>NodeList</code> | A list of elements |
+| el | <code>Element</code> \| <code>HTMLElement</code> \| <code>HTMLCollection</code> \| <code>NodeList</code> | A list of elements |
 | ...classes | <code>String</code> | Classes to check the presence of |
 
 <a name="hasClass..hasClassEl"></a>
@@ -194,7 +194,7 @@ Checks if an element has a class or not
 
 | Param | Type | Description |
 | --- | --- | --- |
-| elem | <code>Element</code> | An HTML element |
+| elem | <code>Element</code> \| <code>HTMLElement</code> | An HTML element |
 | ...hasClasses | <code>String</code> | Classes to check the presence of |
 
 <a name="addEvent"></a>
@@ -206,9 +206,9 @@ Shorthand for `element.addEventListener`
 
 | Param | Type | Description |
 | --- | --- | --- |
-| el | <code>Element</code> \| <code>HTMLCollection</code> \| <code>NodeList</code> \| <code>Window</code> | A list of elements |
+| el | <code>Element</code> \| <code>HTMLElement</code> \| <code>Window</code> \| <code>Document</code> \| <code>MediaQueryList</code> | A list of elements |
 | ev | <code>String</code> | Event's name |
-| fn | <code>function</code> | Event's function |
+| fn | <code>EventListenerOrEventListenerObject</code> | Event's function |
 | [opts] | <code>Object</code> | Optional event options |
 
 <a name="removeEvent"></a>
@@ -220,9 +220,9 @@ Shorthand for `element.removeEventListener`
 
 | Param | Type | Description |
 | --- | --- | --- |
-| el | <code>Element</code> \| <code>HTMLCollection</code> \| <code>NodeList</code> \| <code>Window</code> | A list of elements |
+| el | <code>Element</code> \| <code>HTMLElement</code> \| <code>Window</code> \| <code>Document</code> \| <code>MediaQueryList</code> | A list of elements |
 | ev | <code>String</code> | Event's name |
-| fn | <code>function</code> | Event's function |
+| fn | <code>EventListenerOrEventListenerObject</code> | Event's function |
 | [opts] | <code>Object</code> | Optional event options |
 
 <a name="forEachHTML"></a>
@@ -237,7 +237,7 @@ https://toddmotto.com/ditch-the-array-foreach-call-nodelist-hack/
 | --- | --- | --- |
 | els | <code>Array</code> \| <code>NodeList</code> \| <code>HTMLCollection</code> | A list of elements |
 | fn | [<code>foreachCB</code>](#foreachCB) | Callback containing ( value, index ) as arguments |
-| [scope] | <code>Scope</code> | Scope |
+| [scope] | <code>function</code> | Scope |
 
 <a name="nextFrame"></a>
 
@@ -292,11 +292,11 @@ index start at 0
 
 <a name="byId"></a>
 
-## byId(id) ⇒ <code>HTMLElement</code> \| <code>null</code>
+## byId(id) ⇒ <code>Element</code> \| <code>HTMLElement</code> \| <code>null</code>
 Shorthand for `document.getElementById`
 
 **Kind**: global function  
-**Returns**: <code>HTMLElement</code> \| <code>null</code> - - The selected element  
+**Returns**: <code>Element</code> \| <code>HTMLElement</code> \| <code>null</code> - - The selected element  
 
 | Param | Type | Description |
 | --- | --- | --- |
@@ -313,7 +313,7 @@ Shorthand for `document.getElementsByClassName`
 | Param | Type | Default | Description |
 | --- | --- | --- | --- |
 | selClass | <code>String</code> |  | The selector's class |
-| [parent] | <code>Element</code> | <code>document</code> | Parent element |
+| [parent] | <code>Element</code> \| <code>HTMLElement</code> \| <code>Document</code> | <code>document</code> | Parent element |
 
 <a name="query"></a>
 
@@ -326,7 +326,7 @@ Shorthand for `document.querySelector`
 | Param | Type | Default | Description |
 | --- | --- | --- | --- |
 | selector | <code>String</code> |  | Selector |
-| [parent] | <code>Element</code> | <code>document</code> | Parent element |
+| [parent] | <code>Element</code> \| <code>HTMLElement</code> \| <code>Document</code> | <code>document</code> | Parent element |
 
 <a name="queryAll"></a>
 
@@ -339,7 +339,7 @@ Shorthand for `document.querySelectorAll`
 | Param | Type | Default | Description |
 | --- | --- | --- | --- |
 | selector | <code>String</code> |  | Selector |
-| [parent] | <code>Element</code> | <code>document</code> | Parent element |
+| [parent] | <code>Element</code> \| <code>HTMLElement</code> \| <code>Document</code> | <code>document</code> | Parent element |
 
 <a name="foreachCB"></a>
 
