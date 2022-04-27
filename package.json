@@ -4,6 +4,7 @@
   "description": "Some simple shothands for some js functions and methods",
   "main": "./dist/matt-utils.js",
   "exports": "./dist/matt-utils.js",
+  "type": "module",
   "scripts": {
     "rl": "rollup -cw",
     "declarations": "tsc -p tsconfig.json",
